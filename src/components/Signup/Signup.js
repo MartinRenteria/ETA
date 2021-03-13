@@ -46,7 +46,11 @@ export default function Signup () {
             </Form.Group>
 
             <Button variant="primary" type="submit">
-                Submit
+                Sign Up
+            </Button>
+
+            <Button variant="" type="submit">
+                Log In
             </Button>
         </Form>
     )
