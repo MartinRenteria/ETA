@@ -20,7 +20,10 @@ export default function Login () {
                 <Form.Check type="checkbox" label="Check me out" />
             </Form.Group>
             <Button variant="primary" type="submit">
-                Submit
+                Log In
+            </Button>
+            <Button variant="" type="submit">
+                Sign up
             </Button>
         </Form>
     )
