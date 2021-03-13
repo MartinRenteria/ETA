@@ -12,9 +12,11 @@ function App() {
 
       <h1>Login</h1>
       <Login />
+
       <br></br>
       <h1>Sign up</h1>
       <Signup/>
+      
     </Jumbotron>
 
   )
