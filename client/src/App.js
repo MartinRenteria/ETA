@@ -1,11 +1,16 @@
 import React from 'react';
 import { Jumbotron } from 'react-bootstrap';
-import Login from "./components/Login/Login"
-import Signup from './components/Signup/Signup';
+import Login from "../src/components/Login/Login"
+import Signup from '../src/components/Signup/Signup';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavButton from './components/Navbar/NavButton';
+import NavButton from '../src/components/Navbar/NavButton';
+import { useAuthTokenStore } from "./utils/auth";
+import RegistrationForm from '../src/components/RegistrationForm'
 
 function App() {
+
+  useAuthTokenStore();
+
   return (
     <Jumbotron className="m-0 p-0">
       <NavButton/>
@@ -16,6 +21,8 @@ function App() {
       <br></br>
       <h1>Sign up</h1>
       <Signup/>
+
+      <RegistrationForm />
       
     </Jumbotron>
 
