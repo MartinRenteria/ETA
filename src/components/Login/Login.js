@@ -10,7 +10,6 @@ export default function Login(props) {
             centered
         >
             <Modal.Body>
-                {/* <Modal.Header closeButton> </Modal.Header> */}
                 <Form>
                     <Form.Group controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
