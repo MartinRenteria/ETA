@@ -4,14 +4,19 @@ import Login from "../src/components/Login/Login"
 import Signup from '../src/components/Signup/Signup';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavButton from '../src/components/Navbar/NavButton';
-import { useAuthTokenStore } from "./utils/auth";
-import RegistrationForm from '../src/components/RegistrationForm'
+import { useAuthTokenStore, useIsAuthenticated } from "./utils/auth";
+import RegistrationForm from '../src/components/RegistrationForm';
+import { BrowserRouter} from "react-router-dom";;
 
 function App() {
 
   useAuthTokenStore();
 
+  const isAuthenticated = useIsAuthenticated();
+
   return (
+    <BrowserRouter>
+    
     <Jumbotron className="m-0 p-0">
       <NavButton/>
 
@@ -22,9 +27,10 @@ function App() {
       <h1>Sign up</h1>
       <Signup/>
 
-      <RegistrationForm />
+      {!isAuthenticated &&  <RegistrationForm />}
       
     </Jumbotron>
+    </BrowserRouter>
 
   )
 }

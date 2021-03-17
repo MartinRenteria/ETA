@@ -1,7 +1,6 @@
-import { useRef } from 'react';
-import { useLogin } from '../utils/auth';
-import api from '../utils/api';
-
+import React, {useRef} from "react"
+import { useLogin } from "../utils/auth";
+import api from "../utils/api";
 
 function RegistrationForm() {
 
@@ -18,7 +17,6 @@ function RegistrationForm() {
         const password = passwordRef.current.value;
 
         console.log(email, password);
-        
         try {
 
             // Register the user.
@@ -32,11 +30,11 @@ function RegistrationForm() {
         } catch(err) {
 
              // Handle error responses from the API. This will include
-             if( err.response && err.response.data ) { 
-                 console.log(err.response.data); 
-             } else {
-                    console.log(err);
-                 }
+             if( err.response && err.response.data )
+             { console.log(err.response.data);
+        } else{
+            console.log(err);
+        }
              
         }
     }

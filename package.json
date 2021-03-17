@@ -2,6 +2,7 @@
   "name": "eta",
   "version": "0.1.0",
   "private": true,
+  "main": "server.js",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
@@ -10,11 +11,14 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.6.0",
+    "concurrently": "^6.0.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "fastest-validator": "^1.10.0",
+    "if-env": "^1.0.4",
     "jwt-decode": "^3.1.2",
     "mongoose": "^5.12.0",
+    "nodemon": "^2.0.7",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "react": "^17.0.1",
@@ -25,10 +29,14 @@
     "web-vitals": "^1.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "seed": "node scripts/seedDB.js",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build"
   },
   "eslintConfig": {
     "extends": [
