@@ -1,22 +1,16 @@
 import React from 'react';
 import { Jumbotron} from 'react-bootstrap';
-import Signup from './components/Signup/Signup';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavButton from './components/Navbar/NavButton';
 
 function App() {
 
-
   return (
     <Jumbotron className="m-0 p-0">
-      <NavButton/>
 
-      <br></br>
-      <h1>Sign up</h1>
-      <Signup/>
+      <NavButton/>
       
     </Jumbotron>
-
   )
 }
 
