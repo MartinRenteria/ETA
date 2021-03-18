@@ -38,7 +38,7 @@ export default function LoginForm(props) {
             centered
         >
             <Modal.Body>
-                <Form>
+                <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="LoginEmail">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control type="email" ref={emailRef} placeholder="Enter email" />
@@ -53,7 +53,7 @@ export default function LoginForm(props) {
                     </Form.Group>
 
                     <div className="d-flex justify-content-between">
-                        <Button variant="outline-info btn-dark" type="submit" onSubmit={handleSubmit}>
+                        <Button variant="outline-info btn-dark" type="submit">
                             Log In
                     </Button>
 
