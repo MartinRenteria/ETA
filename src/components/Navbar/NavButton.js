@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navbar, Button} from "react-bootstrap"
 import Login from "../Login/Login"
+import Logout from '../Logout/Logout';
 import Signup from '../Signup/Signup';
 
 export default function NavButton () {
@@ -22,6 +23,9 @@ export default function NavButton () {
                     show={modalLogin}
                     onHide={() => setModalLogin(false)} />
                 
+                {/* Log out button */}
+                <Logout />
+
                 {/* Sign up Button */}
                 <Button variant="outline-info" className="ml-2" onClick={()=> setModalSignup(true)}>
                     Sign Up
