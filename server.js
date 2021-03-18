@@ -12,16 +12,14 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-app.use(routes)
+app.use(routes);
 
 // Connect to Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/ETA",
-{
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/ETA", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
   useFindAndModify: false
-
 });
 
 app.listen(PORT, () => {
