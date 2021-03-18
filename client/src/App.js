@@ -4,7 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavButton from '../src/components/Navbar/NavButton';
 import { useAuthTokenStore } from "./utils/auth";
 import RegistrationForm from '../src/components/RegistrationForm';
-import { BrowserRouter } from "react-router-dom";;
+import { BrowserRouter } from "react-router-dom";import Employee from './components/Employee/Employee';
+;
 
 function App() {
 
@@ -17,6 +18,11 @@ function App() {
         <NavButton />
 
         <RegistrationForm />
+
+        {/* Employee home page */}
+        {/* <Card> */}
+          <Employee />
+        {/* </Card> */}
 
       </Jumbotron>
     </BrowserRouter>
