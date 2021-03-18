@@ -13,4 +13,5 @@ const UserSchema = new Schema({
   }
 });
 
+// eslint-disable-next-line no-undef
 module.exports = User = mongoose.model("users", UserSchema);
