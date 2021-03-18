@@ -6,7 +6,6 @@ db.User.create({
   name: "brian",
   email: "brian@gmail.com",
   title: "director of awesomeness",
-  username: "brians-123",
   password: "password"
   // user: user._id //assign the _id from the user})
 })
