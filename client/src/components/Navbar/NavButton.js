@@ -2,7 +2,9 @@ import React from 'react';
 import { Navbar, Button} from "react-bootstrap"
 import Login from "../Login/Login"
 import Logout from '../Logout/Logout';
+import RequestForm from '../Request-Form/RequestForm';
 import Signup from '../Signup/Signup';
+import TimeHistory from '../Time-History/TimeHistory';
 
 export default function NavButton () {
 
@@ -37,9 +39,8 @@ export default function NavButton () {
 
             {/* Buttons to open up request Form and Vew time Clock History*/}
             <div className="">
-                <Button variant="outline-info" className="ml-2">Request Form</Button>
-
-                <Button variant="outline-info" className="ml-2">View Time Clock History</Button>
+                <RequestForm />
+                <TimeHistory />
             </div>
 
         </Navbar>
