@@ -35,11 +35,7 @@ const UserSchema = new Schema({
     type: String
     // required: "Add your username"
   },
-  isManager: {
-    type: Boolean
-  },
   password: {
-    //is there a password type that will be covered with auth?
     type: String,
     required: "Add your password"
   },
