@@ -7,7 +7,11 @@ const validateEmail = function (email) {
 };
 
 const UserSchema = new Schema({
-  name: {
+  firstName: {
+    type: String
+    // required: "Add your name"
+  },
+  lastName: {
     type: String
     // required: "Add your name"
   },
