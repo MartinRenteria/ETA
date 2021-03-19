@@ -35,7 +35,7 @@ const UserSchema = new Schema({
     type: String
     // required: "Add your username"
   },
-  manager: {
+  isManager: {
     type: Boolean
   },
   password: {
