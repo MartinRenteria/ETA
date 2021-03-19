@@ -1,4 +1,4 @@
-import React, {useRef} from "react"
+import React, { useRef } from "react"
 import { useLogin } from "../utils/auth";
 import api from "../utils/api";
 
@@ -27,15 +27,15 @@ function RegistrationForm() {
 
             // User has been successfully registered, logged in and added to state. Perform any additional actions you need here such as redirecting to a new page.
 
-        } catch(err) {
+        } catch (err) {
 
-             // Handle error responses from the API. This will include
-             if( err.response && err.response.data )
-             { console.log(err.response.data);
-        } else{
-            console.log(err);
-        }
-             
+            // Handle error responses from the API. This will include
+            if (err.response && err.response.data) {
+                console.log(err.response.data);
+            } else {
+                console.log(err);
+            }
+
         }
     }
 
