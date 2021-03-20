@@ -3,6 +3,11 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const SurveySchema = new Schema({
+  clockInOne: Date,
+  clockOutOne: Date,
+  clockInTwo: Date,
+  clockOutTwo: Date,
+  hoursWorked: Number,
   questionOneScore: Number,
   questionTwoScore: Number,
   //note that this reverse relationship isn't part of the example
