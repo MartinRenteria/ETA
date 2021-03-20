@@ -23,6 +23,11 @@ function App() {
           <PrivateRoute exact path="/User" redirectTo="/" component={User} />
         </Switch>
 
+        {/* Employee home page */}
+        {/* <Card> */}
+          <Employee />
+        {/* </Card> */}
+
       </Jumbotron>
     </Router>
 

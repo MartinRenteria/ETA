@@ -1,13 +1,20 @@
 import React from "react"
 import { Card, Table } from "react-bootstrap"
 import InAndOut from "../Clock-In-Out-Button/InAndOut"
+import CurrentTime from "../CurrentTime/CurrentTime"
 import EndDay from "../End-Day-Button/EndDay"
 
 export default function Employee() {
     return (
+
         <Card className="mx-auto bg-info my-2" style={{ width: "60%", height: "60%" }}>
+            {/* Current time clock */}
+            <div className="mx-auto">
+                <CurrentTime />
+            </div>
+
+            {/* Clock In and Out button */}
             <div className="mx-auto my-2">
-                {/* Clock In and Out button */}
                 <InAndOut />
             </div>
 
