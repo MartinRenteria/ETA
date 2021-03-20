@@ -6,8 +6,10 @@ export default function LogoutButton(){
 
     const logout = useLogout();
 
+    console.log(logout)
+
     return(
-        <Button variant="outline-info btn-dark" className="ml-2" type="submit" onClick={logout}>
+        <Button onClick={logout} variant="outline-info btn-dark" className="ml-2" type="submit">
             Log Out
         </Button>
     )

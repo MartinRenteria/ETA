@@ -41,7 +41,7 @@ export default function LoginForm(props) {
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="LoginEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" ref={emailRef} placeholder="Enter email" />
+                        <Form.Control type="text" ref={emailRef} placeholder="Enter email" />
                     </Form.Group>
 
                     <Form.Group controlId="loginPassword">
