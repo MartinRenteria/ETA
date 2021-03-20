@@ -21,7 +21,6 @@ function App() {
 
         {!isAuthenticated && <Signup />}
         {!isAuthenticated &&<LoginForm />}
-   
 
         {/* Employee home page */}
         {/* <Card> */}
