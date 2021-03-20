@@ -1,7 +1,7 @@
 import { Route, Redirect } from "react-router-dom";
 import { useIsAuthenticated } from "../utils/auth";
 
-const PrivateRoute = ({ component: Component, children, redirectTo = "/", ...props }) => {
+const PrivateRoute = ({ component: Component, children, redirectTo = "/Employee", ...props }) => {
 
     const isAuth = useIsAuthenticated();
 
