@@ -8,11 +8,10 @@ import { StoreProvider } from "./store";
 const reactContentRoot = document.getElementById("root");
 
 ReactDOM.render(
-	<React.StrictMode>
+	
 		<StoreProvider>
 			<App />
-		</StoreProvider>
-	</React.StrictMode>,
+		</StoreProvider>,
 	reactContentRoot
 );
 
