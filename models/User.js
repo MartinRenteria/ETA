@@ -35,10 +35,6 @@ const UserSchema = new Schema({
   individualContributor: Boolean,
   //note this is not required as we need a 'ceo'
   // managerId: Number,
-  username: {
-    type: String
-    // required: "Add your username"
-  },
   password: {
     type: String,
     required: "Add your password"
