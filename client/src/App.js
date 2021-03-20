@@ -3,13 +3,15 @@ import { Jumbotron } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavButton from '../src/components/Navbar/NavButton';
 import { useAuthTokenStore } from "./utils/auth";
-import RegistrationForm from '../src/components/RegistrationForm';
-import { BrowserRouter } from "react-router-dom";import Employee from './components/Employee/Employee';
-;
+import Signup from '../src/components/Signup/Signup';
+import { BrowserRouter } from "react-router-dom";
+import Employee from './components/Employee/Employee';
+import LoginForm from './components/Login/Login'
+
 
 function App() {
 
-  useAuthTokenStore();
+  const isAuthenticated = useAuthTokenStore();
 
   return (
     <BrowserRouter>
@@ -17,7 +19,9 @@ function App() {
       <Jumbotron className="m-0 p-0">
         <NavButton />
 
-        <RegistrationForm />
+        {!isAuthenticated && <Signup />}
+        {!isAuthenticated &&<LoginForm />}
+   
 
         {/* Employee home page */}
         {/* <Card> */}

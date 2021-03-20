@@ -1,7 +1,45 @@
-import React from "react";
+import React, { useRef } from "react"
+import { useLogin } from "../../utils/auth";
+import api from "../../utils/api";
 import { Form, Button, Modal } from "react-bootstrap";
 
 export default function Signup(props) {
+
+  const emailRef = useRef();
+  const passwordRef = useRef();
+
+  // Get the helper login function from the `useLogin` hook.
+  const login = useLogin();
+
+  const handleSubmit = async e => {
+      e.preventDefault();
+
+      const email = emailRef.current.value;
+      const password = passwordRef.current.value;
+
+      console.log(email, password);
+      try {
+
+          // Register the user.
+          await api.register({ email, password });
+
+          // User has been successfully registered, now log them in with the same information.
+          await login({ email, password });
+
+          // User has been successfully registered, logged in and added to state. Perform any additional actions you need here such as redirecting to a new page.
+
+      } catch (err) {
+
+          // Handle error responses from the API. This will include
+          if (err.response && err.response.data) {
+              console.log(err.response.data);
+          } else {
+              console.log(err);
+          }
+
+      }
+  }
+  
   return (
     <Modal
       {...props}
@@ -10,7 +48,7 @@ export default function Signup(props) {
       centered
     >
       <Modal.Body>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <Form.Group controlId="exampleForm.ControlInput1">
             <Form.Label>First Name</Form.Label>
             <Form.Control type="Text" placeholder="Enter First Name" />
@@ -21,11 +59,11 @@ export default function Signup(props) {
           </Form.Group>
           <Form.Group controlId="exampleForm.ControlInput1">
             <Form.Label>Email Address</Form.Label>
-            <Form.Control type="email" placeholder="name@example.com" />
+            <Form.Control type="email" ref={emailRef} placeholder="name@example.com" />
           </Form.Group>
           <Form.Group controlId="formBasicPassword">
             <Form.Label>Enter Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control type="password" ref={passwordRef} placeholder="Password" />
           </Form.Group>
           <Form.Group controlId="formBasicPassword">
             <Form.Label>Confirm Password</Form.Label>
