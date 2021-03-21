@@ -82,6 +82,7 @@ export default function Signup(props) {
 
 	// eslint-disable-next-line no-lone-blocks
 }
+// eslint-disable-next-line no-lone-blocks
 {
 	/* commenting out for mvp
   
