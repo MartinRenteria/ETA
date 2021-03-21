@@ -29,7 +29,7 @@ export default function NavButton () {
                     onHide={() => setModalLogin(false)} />
                 
                 {/* Log out button */}
-                <Logout />
+                {/* <Logout /> */}
 
                 {/* Sign up Button */}
                 <Button variant="outline-info" className="ml-2" onClick={()=> setModalSignup(true)}>

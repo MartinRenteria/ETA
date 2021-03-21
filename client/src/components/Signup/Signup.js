@@ -1,6 +1,6 @@
-import React, { useRef } from "react"
-import { useLogin } from "../../utils/auth";
-import api from "../../utils/api";
+// import React, { useRef } from "react"
+// import { useLogin } from "../../utils/auth";
+// import api from "../../utils/api";
 import { Form, Button, Modal } from "react-bootstrap";
 
 export default function Signup(props) {
