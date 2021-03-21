@@ -6,7 +6,9 @@ function CurrentTime() {
 
 const [value, setValve] = useState(new Date())
 
-console.log("Time: " + value)
+const myMonth = value.toLocaleString("default", {month: "long"});
+
+    const myDate = myMonth + " " + value.getDate() + ", " + value.getFullYear();
 
 useEffect(()=> {
     const interval = setInterval(() => setValve(new Date()), 1000);
@@ -18,7 +20,12 @@ useEffect(()=> {
 
     return (
         <div className="m-2">
-            <Clock value={value} />
+            <Clock value={value} className="m-auto"/>
+
+            <h3 className="mt-2 text-center">
+                {myDate}
+            </h3>
+
         </div>
     )
 }
