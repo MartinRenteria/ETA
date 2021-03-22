@@ -1,6 +1,6 @@
 import React, {useRef} from "react";
 import { useLogin } from "../../utils/auth";
-import { Form, Button, Modal } from "react-bootstrap"
+import { Form, Button, Modal } from "react-bootstrap";
 
 export default function LoginForm(props) {
 
@@ -43,17 +43,15 @@ export default function LoginForm(props) {
                         <Form.Label>Email address</Form.Label>
                         <Form.Control type="email" ref={emailRef} placeholder="Enter email" />
                     </Form.Group>
-
-                    <Form.Group controlId="loginPassword">
+                    <Form.Group controlId="LoginPassword">
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" ref={passwordRef} placeholder="Password" />
                     </Form.Group>
                     <Form.Group controlId="rememberMe">
                         <Form.Check type="checkbox" label="Remember Me" />
                     </Form.Group>
-
                     <div className="d-flex justify-content-between">
-                        <Button variant="outline-info btn-dark" type="submit">
+                        <Button variant="outline-info btn-dark" type="submit" onClick={props.onHide}>
                             Log In
                     </Button>
 

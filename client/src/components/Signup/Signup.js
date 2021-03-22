@@ -16,6 +16,7 @@ export default function Signup(props) {
 
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
+		console.log(email, password);
 
         try {
 
@@ -30,9 +31,12 @@ export default function Signup(props) {
         } catch(err) {
 
              // Handle error responses from the API. This will include
-             if( err.response && err.response.data ) console.log(err.response.data);
-             
-        }
+			 if (err.response && err.response.data) {
+				console.log(err.response.data);
+			} else {
+				console.log(err);
+			}
+		}
     }
 	return (
 		<Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
