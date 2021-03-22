@@ -23,7 +23,7 @@ function App() {
     <Router>
 
       <Jumbotron className="m-0 p-0">
-        <NavButton />
+        {/* <NavButton /> */}
 
         {/* Switch case testing */}
         {/* {isAuthDone && */}

@@ -9,8 +9,7 @@ export default function Employee() {
     return (
         <div>
             <Card
-                className="mx-auto bg-info my-2"
-                style={{ width: "60%", height: "60%" }}
+
             >
                 {/* Current time clock */}
                 <div className="mx-auto">
