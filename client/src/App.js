@@ -26,8 +26,6 @@ function App() {
           <PrivateRoute exact path="/Employee" redirectTo="/" component={Employee} />
         </Switch>}
 
-        <Employee/>
-
       </Jumbotron>
     </Router>
 
