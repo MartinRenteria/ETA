@@ -3,7 +3,7 @@ import { Card, Table } from "react-bootstrap";
 import InAndOut from "../Clock-In-Out-Button/InAndOut";
 import CurrentTime from "../CurrentTime/CurrentTime";
 import EndDay from "../End-Day-Button/EndDay";
-import Questions from "./questions";
+import Questions from "../Question/Questions";
 
 export default function Employee() {
     return (

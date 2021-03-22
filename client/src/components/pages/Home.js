@@ -15,7 +15,6 @@ function HomePage() {
                     <p>Please Log In to start your day</p>
                     <img src={helloGif} alt="hello" style={{height: "100px"}}/>
                 </div>
-
             </Card>
         </div>
     )
