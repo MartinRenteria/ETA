@@ -37,16 +37,15 @@ function App() {
         
         {/* Settup router to route pages */}
         <Router>
-          <div>
-              <Route exact path="/" component={Home} />
+          <Switch>
+            <Route exact path="/" component={Home} />
             <Route exact path="/employee" component={EmployeePage} />
             <Route exact path="/employer" component={EmployerPage} />
 
-              {/* button routes */}
+            {/* button routes */}
             <Route exact path="/request-form" component={RequestFormPage} />
             <Route exact path="/time-history" component={TimeHistoryPage} />
-
-          </div>
+          </Switch>
         </Router>
 
         {/* <Employee/> */}
