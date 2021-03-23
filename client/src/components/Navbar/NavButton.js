@@ -36,9 +36,6 @@ function NavButton () {
                     show={modalSignup}
                     onHide={() => setModalSignup(false)}/>
             </div>
-            <Button href="/Employee">
-                    Employee
-                </Button>
 
             {/* Buttons to open up request Form and Vew time Clock History*/}
             <div className="">
