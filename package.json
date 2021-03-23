@@ -30,6 +30,7 @@
     "react-moment": "^1.1.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "recharts": "^2.0.8",
     "web-vitals": "^1.1.0"
   },
   "scripts": {
@@ -59,6 +60,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {}
+  }
 }
