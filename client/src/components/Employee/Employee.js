@@ -4,6 +4,7 @@ import InAndOut from "../Clock-In-Out-Button/InAndOut";
 import CurrentTime from "../CurrentTime/CurrentTime";
 import EndDay from "../End-Day-Button/EndDay";
 import Questions from "./questions";
+import Chart from "../Chart/index";
 
 export default function Employee() {
     return (
@@ -72,6 +73,8 @@ export default function Employee() {
                     <EndDay />
                 </div>
             </Card>
+
+            <Chart />
             <Questions />
         </div>
     );

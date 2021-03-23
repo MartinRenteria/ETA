@@ -1,8 +1,8 @@
 import React from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 
-const App = () => {
+const Chart = () => {
   const data = [
     {
       name: "Page A",
@@ -77,7 +77,7 @@ const App = () => {
 
 }
 
-export default App;
+export default Chart;
 
 
   
