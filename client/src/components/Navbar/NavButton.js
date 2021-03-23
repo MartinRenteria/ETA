@@ -7,7 +7,7 @@ import Signup from '../Signup/Signup';
 import TimeHistory from '../Time-History/TimeHistory';
 import { useAuthTokenStore } from "../../utils/auth";
 
-export default function NavButton () {
+function NavButton () {
 
     const [modalLogin, setModalLogin] = React.useState(false);
     const [modalSignup, setModalSignup] = React.useState(false);
@@ -27,9 +27,6 @@ export default function NavButton () {
                 <Login
                     show={modalLogin}
                     onHide={() => setModalLogin(false)} />
-                
-                {/* Log out button */}
-                <Logout />
 
                 {/* Sign up Button */}
                 <Button variant="outline-info" className="ml-2" onClick={()=> setModalSignup(true)}>
@@ -53,3 +50,5 @@ export default function NavButton () {
         </Navbar>
     )
 }
+
+export default NavButton;
