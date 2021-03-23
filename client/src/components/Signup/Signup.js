@@ -66,10 +66,6 @@ export default function Signup(props) {
 						<Form.Label>Employee Title</Form.Label>
 						<Form.Control type="Text" placeholder="Enter title" />
 					</Form.Group>
-					<Form.Group controlId="exampleForm.ControlSelect4">
-						<Form.Label>Are you an invidivudal contributor?</Form.Label>
-						<Form.Control type="checkbox" />
-					</Form.Group>
 					<div className="d-flex justify-content-between">
 						<Button variant="outline-info btn-dark" type="submit">
 							Sign Up

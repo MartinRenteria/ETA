@@ -1,8 +1,15 @@
 import React, {useRef} from "react";
 import { useLogin } from "../../utils/auth";
 import { Form, Button, Modal } from "react-bootstrap";
+import { useHistory } from 'react-router-dom';
+
 
 export default function LoginForm(props) {
+
+    
+        let history = useHistory();
+            
+        
 
     const emailRef = useRef();
     const passwordRef = useRef();
@@ -21,6 +28,8 @@ export default function LoginForm(props) {
             await login({ email, password });
 
             // User has been successfully logged in and added to state. Perform any additional actions you need here such as redirecting to a new page.
+
+            history.push("/Employee");
 
         } catch(err) {
 
