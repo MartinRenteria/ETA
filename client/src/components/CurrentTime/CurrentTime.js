@@ -1,26 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import Clock from 'react-clock';
-import "react-clock/dist/Clock.css"
+import React, { useEffect, useState } from "react";
+import Clock from "react-clock";
+import "react-clock/dist/Clock.css";
 
 function CurrentTime() {
+  const [value, setValve] = useState(new Date());
 
-const [value, setValve] = useState(new Date())
-
-console.log("Time: " + value)
-
-useEffect(()=> {
+  useEffect(() => {
     const interval = setInterval(() => setValve(new Date()), 1000);
 
     return () => {
-        clearInterval(interval)
+      clearInterval(interval);
     };
-}, []);
+  }, []);
 
-    return (
-        <div className="m-2">
-            <Clock value={value} />
-        </div>
-    )
+  return (
+    <div className="m-2">
+      <Clock value={value} />
+    </div>
+  );
 }
 
 export default CurrentTime;
