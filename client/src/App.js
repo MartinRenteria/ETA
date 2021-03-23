@@ -5,7 +5,7 @@ import NavButton from '../src/components/Navbar/NavButton';
 import { useAuthTokenStore } from "./utils/auth";
 import Signup from '../src/components/Signup/Signup';
 import { BrowserRouter } from "react-router-dom";
-import Employee from './components/Employee/Employee';
+import Employee from './components/Employee';
 import LoginForm from './components/Login/Login'
 
 
