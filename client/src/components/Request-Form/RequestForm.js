@@ -1,8 +1,6 @@
 import React from 'react';
 import { Button } from "react-bootstrap"
-import { useHistory } from 'react-router-dom';
 import { Link } from "react-router-dom";
-import RequestFormPage from '../pages/Request-Form-page';
 
 export default function RequestForm() {
 
@@ -16,11 +14,8 @@ export default function RequestForm() {
     return (
         <Link to="/request-form">
             <Button variant="outline-info" className="ml-2">
-
                 Request Form
-                
-        </Button>
+            </Button>
         </Link>
-
     )
 }

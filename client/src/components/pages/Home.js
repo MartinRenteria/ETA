@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card } from "react-bootstrap"
 import NavButton from '../Navbar/NavButton';
-import helloGif from "./Hello.gif"
+import helloGif from "../img/Hello.gif"
 
 function HomePage() {
 
@@ -19,6 +19,5 @@ function HomePage() {
         </div>
     )
 }
-
 
 export default HomePage;

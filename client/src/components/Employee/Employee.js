@@ -3,14 +3,14 @@ import { Card, Table } from "react-bootstrap";
 import InAndOut from "../Clock-In-Out-Button/InAndOut";
 import CurrentTime from "../CurrentTime/CurrentTime";
 import EndDay from "../End-Day-Button/EndDay";
+import NavButton from "../Navbar/NavButton";
 import Questions from "../Question/Questions";
 
 export default function Employee() {
     return (
         <div>
-            <Card
-
-            >
+            <Card>
+                <NavButton/>
                 {/* Current time clock */}
                 <div className="mx-auto">
                     <CurrentTime />
