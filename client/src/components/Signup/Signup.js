@@ -67,7 +67,7 @@ export default function Signup(props) {
 						<Form.Control type="Text" placeholder="Enter title" />
 					</Form.Group>
 					<div className="d-flex justify-content-between">
-						<Button variant="outline-info btn-dark" type="submit">
+						<Button variant="outline-info btn-dark" onClick={props.onHide} type="submit">
 							Sign Up
 						</Button>
 

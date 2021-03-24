@@ -8,9 +8,7 @@ export default function LoginForm(props) {
 
     
         let history = useHistory();
-            
         
-
     const emailRef = useRef();
     const passwordRef = useRef();
 
