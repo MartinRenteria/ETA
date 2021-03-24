@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from "react-bootstrap"
-import NavButton from '../Navbar/NavButton';
+import NavButton from '../Buttons/NavButton';
 import helloGif from "../img/Hello.gif"
 
 function HomePage() {
