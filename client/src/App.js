@@ -2,33 +2,32 @@ import React from 'react';
 import { Jumbotron } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavButton from '../src/components/Navbar/NavButton';
-import { useAuthTokenStore } from "./utils/auth";
-import Signup from '../src/components/Signup/Signup';
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Employee from './components/Employee/Employee';
-import LoginForm from './components/Login/Login'
-
+import Home from './components/Home/Home';
+import PrivateRoute from './components/PrivateRoute';
+import { useAuthTokenStore } from './utils/auth';
 
 function App() {
 
-  const isAuthenticated = useAuthTokenStore();
+  const isAuthDone = useAuthTokenStore();
 
   return (
-    <BrowserRouter>
+    <Router>
 
       <Jumbotron className="m-0 p-0">
         <NavButton />
+        {isAuthDone &&
+        <Switch>
+          {/* Routes open to all users */}
+          <Route exact path="/" component={Home} />
 
-        {!isAuthenticated && <Signup />}
-        {!isAuthenticated &&<LoginForm />}
-
-        {/* Employee home page */}
-        {/* <Card> */}
-          <Employee />
-        {/* </Card> */}
+          {/* Routes for (authenticated) users */}
+          <PrivateRoute exact path="/Employee" redirectTo="/" component={Employee} />
+        </Switch>}
 
       </Jumbotron>
-    </BrowserRouter>
+    </Router>
 
   )
 }

@@ -5,13 +5,16 @@ import Logout from '../Logout/Logout';
 import RequestForm from '../Request-Form/RequestForm';
 import Signup from '../Signup/Signup';
 import TimeHistory from '../Time-History/TimeHistory';
+import { useAuthTokenStore } from "../../utils/auth";
 
-export default function NavButton () {
+function NavButton () {
 
     const [modalLogin, setModalLogin] = React.useState(false);
     const [modalSignup, setModalSignup] = React.useState(false);
+    const isAuthenticated = useAuthTokenStore();
 
     return (
+
         <Navbar className="d-flex justify-content-between" bg="dark" variant="dark">
 
             {/* Log in and Signup button to open the form */}
@@ -24,9 +27,6 @@ export default function NavButton () {
                 <Login
                     show={modalLogin}
                     onHide={() => setModalLogin(false)} />
-                
-                {/* Log out button */}
-                <Logout />
 
                 {/* Sign up Button */}
                 <Button variant="outline-info" className="ml-2" onClick={()=> setModalSignup(true)}>
@@ -43,6 +43,12 @@ export default function NavButton () {
                 <TimeHistory />
             </div>
 
+        {!isAuthenticated && <Signup />}
+        {!isAuthenticated && <Login />}
+        {isAuthenticated && <Logout />}
+
         </Navbar>
     )
 }
+
+export default NavButton;
