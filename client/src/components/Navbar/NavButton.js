@@ -39,8 +39,8 @@ function NavButton () {
 
             {/* Buttons to open up request Form and Vew time Clock History*/}
             <div className="">
-                <RequestForm />
-                <TimeHistory />
+            {isAuthenticated && <RequestForm />}
+            {isAuthenticated && <TimeHistory />}
             </div>
 
         {isAuthenticated && <Logout />}
