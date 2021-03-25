@@ -13,7 +13,7 @@ const passport = require("passport");
 app.use(passport.initialize());
 
 // Passport config
-passport.use( require("./config/jwtPassportStrategy") );
+passport.use(require("./config/jwtPassportStrategy"));
 
 //Serve up static assets
 if (process.env.NODE_ENV === "production") {
@@ -21,7 +21,11 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Add API routes for authentication
-app.use( "/api", require("./routes/authentication"));
+app.use(
+  "/api",
+  require("./routes/authentication"),
+  require("./routes/apiRoutes")
+);
 
 //Send every request to the React app
 //Define any API Routes before this runs

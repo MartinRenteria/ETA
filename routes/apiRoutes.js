@@ -4,13 +4,15 @@ const { Survey } = require("../models");
 const { User } = require("../models");
 
 /*Users*/
-//post route - create a new user. Leverage functionality already created for auth
-//get route - at login, determine credentials and if they should go to employee/employer route
+//post route - create a new user. Leverage functionality already created for auth - verify the individual contributor checkbox is working
+
+//at login, determine credentials and if they should go to employee/employer route - Martin is taking this one
 
 /*Employee-Survey*/
 //post route - use on the first clock in
-router.post("/api/surveys", (req, res) => {
-  Survey.create({})
+router.post("/surveys", (req, res) => {
+  console.log(req.body);
+  Survey.create(req.body)
     .then(dbSurvey => {
       res.json(dbSurvey);
     })
@@ -19,7 +21,7 @@ router.post("/api/surveys", (req, res) => {
     });
 });
 //put route - use on clock out, 2nd clock in, 2nd clock out, and survey answers for questions 1-5
-router.put("/api/surveys/:id", (req, res) => {
+router.put("/surveys/:id", (req, res) => {
   //in a real case, we need to find by the date and employee number
   Survey.findByIdAndUpdate(
     req.params.id,
@@ -40,7 +42,7 @@ router.put("/api/surveys/:id", (req, res) => {
 
 /*Employer-Surveys*/
 //get route - get the results for all employees (mvp, later will add by manager) use for chart
-router.get("/api/employer", (req, res) => {
+router.get("/employer", (req, res) => {
   Survey.find({})
     .then(dbSurvey => {
       res.json(dbSurvey);
