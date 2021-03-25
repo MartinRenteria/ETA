@@ -15,7 +15,7 @@ export default function Employee() {
         <div>
                     <h2 className="d-flex justify-content-center m-1">My Timesheet</h2>
         <p className="d-flex justify-content-center m-1">
-            <strong className="d-flex justify-content-center m-1">Weclome Back</strong>
+            <strong className="d-flex justify-content-center m-1">Weclome</strong>
             {user.firstName}<p>!</p>
         </p>
             <Card
