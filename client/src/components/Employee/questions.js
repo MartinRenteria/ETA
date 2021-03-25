@@ -5,7 +5,7 @@ export default function Questions() {
   const questions = [
     {
       questionText:
-        "As an employee here how would you rate your mental health inside of work? ",
+        "As an employee here how would you rate your mental health inside of work? (with 1 being the worst and 5 being the best) ",
       answerOptions: [
         { answerText: "1" },
         { answerText: "2" },
@@ -15,7 +15,7 @@ export default function Questions() {
       ]
     },
     {
-      questionText: "Do you ever worry about the security of your job?",
+      questionText: "Do you ever worry about the security of your job? (with 1 being the worst and 5 being the best)",
       answerOptions: [
         { answerText: "1" },
         { answerText: "2" },
@@ -26,7 +26,7 @@ export default function Questions() {
     },
     {
       questionText:
-        "As an employee here how would you rate your mental health inside of work?",
+        "As an employee here how would you rate your mental health inside of work? (with 1 being the worst and 5 being the best)",
       answerOptions: [
         { answerText: "1" },
         { answerText: "2" },
@@ -36,7 +36,7 @@ export default function Questions() {
       ]
     },
     {
-      questionText: "Do you feel valued as a team member?",
+      questionText: "Do you feel valued as a team member? (with 1 being the worst and 5 being the best)",
       answerOptions: [
         { answerText: "1" },
         { answerText: "2" },
@@ -46,7 +46,7 @@ export default function Questions() {
       ]
     },
     {
-      questionText: "Do you feel like we have a supportive culture here?",
+      questionText: "Do you feel like we have a supportive culture here? (with 1 being the worst and 5 being the best)",
       answerOptions: [
         { answerText: "1" },
         { answerText: "2" },
@@ -54,7 +54,57 @@ export default function Questions() {
         { answerText: "4" },
         { answerText: "5" }
       ]
-    }
+    },
+    {
+      questionText: "How would you rate your overall mood when you are at work? (5 being very happy and 1 being very unhappy)",
+      answerOptions: [
+        { answerText: "1" },
+        { answerText: "2" },
+        { answerText: "3" },
+        { answerText: "4" },
+        { answerText: "5" }
+      ]
+    },
+    {
+      questionText: "Do you see yourself as a capable person? (with 1 being not capable and 5 being very capable)",
+      answerOptions: [
+        { answerText: "1" },
+        { answerText: "2" },
+        { answerText: "3" },
+        { answerText: "4" },
+        { answerText: "5" }
+      ]
+    },
+    {
+      questionText: "How do you work when you are under pressure? (with 1 being very poorly and 5 being very well)",
+      answerOptions: [
+        { answerText: "1" },
+        { answerText: "2" },
+        { answerText: "3" },
+        { answerText: "4" },
+        { answerText: "5" }
+      ]
+    },
+    {
+      questionText: "Do you get along with your colleagues? (with 1 being not at all and 5 being very well)",
+      answerOptions: [
+        { answerText: "1" },
+        { answerText: "2" },
+        { answerText: "3" },
+        { answerText: "4" },
+        { answerText: "5" }
+      ]
+    },
+    {
+      questionText: "Do you feel like you are respected? (with 1 being no respect and 5 being very respected",
+      answerOptions: [
+        { answerText: "1" },
+        { answerText: "2" },
+        { answerText: "3" },
+        { answerText: "4" },
+        { answerText: "5" }
+      ]
+    },
   ];
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
