@@ -61,6 +61,9 @@ export default function Questions() {
 
   const handleAnswerButtonClick = () => {
     const nextQuestion = currentQuestion + 1;
+    console.log(questions.answerOptions);
+    console.log(this);
+    console.log(currentQuestion);
     setCurrentQuestion(nextQuestion);
   };
 

@@ -5,12 +5,9 @@ import { useHistory } from 'react-router-dom';
 
 
 export default function LoginForm(props) {
-
     
-        let history = useHistory();
-            
+    let history = useHistory();
         
-
     const emailRef = useRef();
     const passwordRef = useRef();
 

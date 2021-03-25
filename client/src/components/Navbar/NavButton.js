@@ -5,13 +5,13 @@ import Logout from '../Logout/Logout';
 import RequestForm from '../Request-Form/RequestForm';
 import Signup from '../Signup/Signup';
 import TimeHistory from '../Time-History/TimeHistory';
-import { useAuthTokenStore } from "../../utils/auth";
+import { useIsAuthenticated } from "../../utils/auth";
 
 function NavButton () {
 
     const [modalLogin, setModalLogin] = React.useState(false);
     const [modalSignup, setModalSignup] = React.useState(false);
-    const isAuthenticated = useAuthTokenStore();
+    const isAuthenticated = useIsAuthenticated();
 
     return (
 
@@ -21,17 +21,17 @@ function NavButton () {
             <div className="RegisteringButtons">
 
                 {/* Log In button function */}
-                <Button variant="outline-info" className="ml-2" onClick={() => setModalLogin(true)}>
+                {!isAuthenticated && <Button variant="outline-info" className="ml-2" onClick={() => setModalLogin(true)}>
                     Log In
-                </Button>
+                </Button>}
                 <Login
                     show={modalLogin}
                     onHide={() => setModalLogin(false)} />
 
                 {/* Sign up Button */}
-                <Button variant="outline-info" className="ml-2" onClick={()=> setModalSignup(true)}>
+                {!isAuthenticated && <Button variant="outline-info" className="ml-2" onClick={()=> setModalSignup(true)}>
                     Sign Up
-                </Button>
+                </Button>}
                 <Signup
                     show={modalSignup}
                     onHide={() => setModalSignup(false)}/>
@@ -39,12 +39,10 @@ function NavButton () {
 
             {/* Buttons to open up request Form and Vew time Clock History*/}
             <div className="">
-                <RequestForm />
-                <TimeHistory />
+            {isAuthenticated && <RequestForm />}
+            {isAuthenticated && <TimeHistory />}
             </div>
 
-        {!isAuthenticated && <Signup />}
-        {!isAuthenticated && <Login />}
         {isAuthenticated && <Logout />}
 
         </Navbar>
