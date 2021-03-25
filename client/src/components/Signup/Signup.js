@@ -103,6 +103,10 @@ export default function Signup(props) {
               ref={titleRef}
               placeholder="Enter title"
             />
+          <Form.Group controlId="exampleForm.ControlSelect4">
+            <Form.Label>Are you an invidivudal contributor?</Form.Label>
+            <Form.Control type="checkbox" />
+          </Form.Group>
           </Form.Group>
           <div className="d-flex justify-content-between">
             <Button variant="outline-info btn-dark" onClick={props.onHide} type="submit">
