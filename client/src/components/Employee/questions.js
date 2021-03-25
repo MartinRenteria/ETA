@@ -5,7 +5,7 @@ export default function Questions() {
   const questions = [
     {
       questionText:
-        "As an employee here how would you rate your mental health inside of work? (with 1 being the worst and 5 being the best) ",
+        "As an employee here how would you rate your mental health inside of work TODAY? (with 1 being the worst and 5 being the best) ",
       answerOptions: [
         { answerText: "1" },
         { answerText: "2" },
@@ -15,7 +15,7 @@ export default function Questions() {
       ]
     },
     {
-      questionText: "Do you ever worry about the security of your job? (with 1 being the worst and 5 being the best)",
+      questionText: "Do you ever worry about the security of your job? (with 1 being very worried and 5 not at all)",
       answerOptions: [
         { answerText: "1" },
         { answerText: "2" },
@@ -26,7 +26,7 @@ export default function Questions() {
     },
     {
       questionText:
-        "As an employee here how would you rate your mental health inside of work? (with 1 being the worst and 5 being the best)",
+        "As an employee here how would you rate your mental health outside of work TODAY? (with 1 being the worst and 5 being the best)",
       answerOptions: [
         { answerText: "1" },
         { answerText: "2" },
@@ -46,7 +46,7 @@ export default function Questions() {
       ]
     },
     {
-      questionText: "Do you feel like we have a supportive culture here? (with 1 being the worst and 5 being the best)",
+      questionText: "Do you feel like we have a supportive culture here? (with 1 being no support and 5 being very supported)",
       answerOptions: [
         { answerText: "1" },
         { answerText: "2" },
@@ -56,7 +56,7 @@ export default function Questions() {
       ]
     },
     {
-      questionText: "How would you rate your overall mood when you are at work? (5 being very happy and 1 being very unhappy)",
+      questionText: "How would you rate your overall mood when you are at work TODAY? (1 being the worst and 5 being the best)",
       answerOptions: [
         { answerText: "1" },
         { answerText: "2" },
@@ -66,7 +66,7 @@ export default function Questions() {
       ]
     },
     {
-      questionText: "Do you see yourself as a capable person? (with 1 being not capable and 5 being very capable)",
+      questionText: "Do you feel like you can talk to someone or ask for help with mental or physical health issues at work? (with 1 being no comfort all and 5 very comfortable)",
       answerOptions: [
         { answerText: "1" },
         { answerText: "2" },
