@@ -30,6 +30,22 @@ class API {
   }
 
   /**
+   * @param {object} surveyData.clockInOne
+   * @param {String} surveyData.clockOutOne
+   * @param {String} surveyData.clockInTwo
+   * @param {String} surveyData.clockOutTwo
+   * @param {String} surveyData.hoursWorked
+   * @param {String} surveyData.questionOneScore
+   * @param {String} surveyData.questionTwoScore
+   *
+   * @returns {Promise}
+   */
+  submitSurvey(surveyData) {
+    console.log(surveyData);
+    return this.axios.post("/api/surveys", surveyData);
+  }
+
+  /**
    * @param {object} userData
    * @param {String} userData.email
    * @param {String} userData.password
