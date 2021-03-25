@@ -11,6 +11,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "fastest-validator": "^1.10.0",
+    "http-proxy-middleware": "^1.0.6",
     "if-env": "^1.0.4",
     "jwt-decode": "^3.1.2",
     "moment": "^2.29.1",

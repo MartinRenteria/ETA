@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { useLogin } from "../../utils/auth";
 import api from "../../utils/api";
 import { Form, Button, Modal } from "react-bootstrap";
+import { useHistory } from 'react-router-dom';
 
 export default function Signup(props) {
   const emailRef = useRef();
@@ -11,7 +12,12 @@ export default function Signup(props) {
   const titleRef = useRef();
 
   // Get the helper login function from the `useLogin` hook.
+
   const login = useLogin();
+
+  // Re-directs user to employee page upon logging in
+  let history = useHistory();
+
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -32,6 +38,9 @@ export default function Signup(props) {
       await login({ email, password });
 
       // User has been successfully registered, logged in and added to state. Perform any additional actions you need here such as redirecting to a new page.
+
+      history.push("/Employee");
+
     } catch (err) {
       // Handle error responses from the API. This will include
       if (err.response && err.response.data) {
@@ -96,7 +105,7 @@ export default function Signup(props) {
             />
           </Form.Group>
           <div className="d-flex justify-content-between">
-            <Button variant="outline-info btn-dark" type="submit">
+            <Button variant="outline-info btn-dark" onClick={props.onHide} type="submit">
               Sign Up
             </Button>
 

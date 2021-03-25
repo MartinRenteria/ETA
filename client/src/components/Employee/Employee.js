@@ -5,10 +5,19 @@ import CurrentTime from "../CurrentTime/CurrentTime";
 import EndDay from "../End-Day-Button/EndDay";
 import Questions from "./questions";
 import Chart from "../Chart/index";
+import { useAuthenticatedUser } from "../../utils/auth";
+
 
 export default function Employee() {
-    return (
+        const user = useAuthenticatedUser();
+
+    return user && (
         <div>
+                    <h2 className="d-flex justify-content-center m-1">My Timesheet</h2>
+        <p className="d-flex justify-content-center m-1">
+            <strong className="d-flex justify-content-center m-1">Weclome</strong>
+            {user.firstName}<p>!</p>
+        </p>
             <Card
                 className="mx-auto bg-info my-2"
                 style={{ width: "60%", height: "60%" }}

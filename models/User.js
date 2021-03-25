@@ -41,6 +41,10 @@ const UserSchema = new Schema({
   },
   surveys: [{ type: Schema.Types.ObjectId, ref: "Survey" }]
 });
+//get all of the surveys
+//db.user.findById().populate("surveys").then(res.json, etc.)
+//find a user and .populate grabs all of the surveys and
+//fills them in with the survey data
 
 const User = mongoose.model("User", UserSchema);
 

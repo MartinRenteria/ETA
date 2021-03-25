@@ -1,7 +1,7 @@
 import { Route, Redirect } from "react-router-dom";
 import { useIsAuthenticated } from "../utils/auth";
 
-const PrivateRoute = ({ component: Component, children, redirectTo = "/", ...props }) => {
+const EmployeeRoute = ({ component: Component, children, redirectTo = "/", ...props }) => {
 	const isAuth = useIsAuthenticated();
 
 	const render = ({ location }) =>
@@ -10,11 +10,11 @@ const PrivateRoute = ({ component: Component, children, redirectTo = "/", ...pro
 		) : (
 			children
 		) : (
-			// eslint-disable-next-line no-restricted-globals
+
 			<Redirect to={{ pathname: redirectTo, state: { from: location } }} />
 		);
 
 	return <Route {...props} render={render} />;
 };
 
-export default PrivateRoute;
+export default EmployeeRoute;
