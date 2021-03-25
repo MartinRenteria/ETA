@@ -35,7 +35,7 @@ To start things off, we had two proposals for Project 3. We decided that Truc's 
 
 ## Future Goals
 
-- 
+- Graph employer
 
 ## Resources
 
