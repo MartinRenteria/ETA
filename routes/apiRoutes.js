@@ -11,12 +11,10 @@ const { User } = require("../models");
 /*Employee-Survey*/
 //post route - use on the first clock in
 router.post("/surveys", (req, res) => {
-  Survey.create({ clockInOne: req.clockInOne })
+  console.log(req.body);
+  Survey.create(req.body)
     .then(dbSurvey => {
       res.json(dbSurvey);
-      console.log("does this work?", dbSurvey);
-      console.log("does this work?", req.clockInOne);
-      console.log("this is the response", res);
     })
     .catch(err => {
       res.json(err);
