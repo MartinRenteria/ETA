@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 
-export default function Questions() {
+export default function Questions(props) {
   const questions = [
     {
       questionText:
@@ -118,32 +118,43 @@ export default function Questions() {
   };
 
   return (
-    <div className="app">
-      {/* figure out how to push results to back end */}
-      {false ? (
-        <div className="results"></div>
-      ) : (
-        <>
-          <div className="question-section">
-            <div className="question-count">
-              <span>Employee check-in</span>
-            </div>
-            <div className="question-text">
-              {questions[currentQuestion].questionText}
-            </div>
-          </div>
-          <div className="answer-section">
-            {questions[currentQuestion].answerOptions.map(answerOptions => (
-              <Button
-                className="btn-warning text-success"
-                onClick={handleAnswerButtonClick}
-              >
-                {answerOptions.answerText}
-              </Button>
-            ))}
-          </div>
-        </>
-      )}
-    </div>
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+
+      <Modal.Body>
+        <div className="app">
+          {/* figure out how to push results to back end */}
+          {false ? (
+            <div className="results"></div>
+          ) : (
+            <>
+              <div className="question-section">
+                <div className="question-count">
+                  <span>Employee check-in</span>
+                </div>
+                <div className="question-text">
+                  {questions[currentQuestion].questionText}
+                </div>
+              </div>
+              <div className="answer-section">
+                {questions[currentQuestion].answerOptions.map(answerOptions => (
+                  <Button
+                    className="btn-warning text-success"
+                    onClick={handleAnswerButtonClick}
+                  >
+                    {answerOptions.answerText}
+                  </Button>
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+      </Modal.Body>
+    </Modal>
+
   );
 }
