@@ -20,18 +20,29 @@ router.post("/surveys", (req, res) => {
       res.json(err);
     });
 });
+
 //put route - use on clock out, 2nd clock in, 2nd clock out, and survey answers for questions 1-5
 router.put("/surveys/:id", (req, res) => {
-  //in a real case, we need to find by the date and employee number
   Survey.findByIdAndUpdate(
     req.params.id,
-    //this needs to be updated
-    { $push: { dbSurvey: req.body } },
+    { $set: req.body },
     {
-      new: true,
-      runValidators: true //look at this later
+      new: true
     }
   )
+    .then(dbSurvey => {
+      res.json(dbSurvey);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
+
+/*Employee*/
+//get route - get the results for the current employee
+//to do for later
+router.get("/surveys", (req, res) => {
+  Survey.find({})
     .then(dbSurvey => {
       res.json(dbSurvey);
     })
@@ -53,7 +64,7 @@ router.get("/employer", (req, res) => {
 });
 
 /*Questions - using an array instead for now*/
-// post route - we can load these into the database
-//get route - get the questions and
+//post route - we can load these into the database
+//get route - get the questions
 
 module.exports = router;
