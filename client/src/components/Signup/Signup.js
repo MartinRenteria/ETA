@@ -11,7 +11,6 @@ export default function Signup(props) {
   const lastNameRef = useRef();
   const titleRef = useRef();
   const individualContributorRef = useRef();
-  console.log(individualContributorRef)
 
   // Get the helper login function from the `useLogin` hook.
 
@@ -30,8 +29,6 @@ export default function Signup(props) {
     const lastName = lastNameRef.current.value;
     const title = titleRef.current.value;
     const individualContributor = individualContributorRef.current.checked;
-    console.log(individualContributor)
-
 
     try {
       // Register the user.
@@ -40,12 +37,12 @@ export default function Signup(props) {
       // User has been successfully registered, now log them in with the same information.
       await login({ email, password });
 
-      // User has been successfully registered, logged in and added to state. Perform any additional actions you need here such as redirecting to a new page.
+      // User has been successfully registered, logged in and added to state..
 
       history.push("/Employee");
 
     } catch (err) {
-      // Handle error responses from the API. This will include
+      // Handle error responses from the API. 
       if (err.response && err.response.data) {
         console.log(err.response.data);
       } else {
