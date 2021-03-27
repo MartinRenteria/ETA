@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useLogin } from "../../utils/auth";
 import api from "../../utils/api";
 import { Form, Button, Modal } from "react-bootstrap";
@@ -10,6 +10,7 @@ export default function Signup(props) {
   const firstNameRef = useRef();
   const lastNameRef = useRef();
   const titleRef = useRef();
+  const individualContributorRef = useRef();
 
   // Get the helper login function from the `useLogin` hook.
 
@@ -17,6 +18,7 @@ export default function Signup(props) {
 
   // Re-directs user to employee page upon logging in
   let history = useHistory();
+  const [validated, setValidated] = useState(false);
 
 
   const handleSubmit = async e => {
@@ -27,12 +29,19 @@ export default function Signup(props) {
     const firstName = firstNameRef.current.value;
     const lastName = lastNameRef.current.value;
     const title = titleRef.current.value;
+    const individualContributor = individualContributorRef.current.value;
 
-    console.log(email, password);
+    const form = e.currentTarget;
+    if (form.checkValidity() === false) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+
+    setValidated(true);
 
     try {
       // Register the user.
-      await api.register({ email, password, firstName, lastName, title });
+      await api.register({ email, password, firstName, lastName, title, individualContributor });
 
       // User has been successfully registered, now log them in with the same information.
       await login({ email, password });
@@ -58,7 +67,7 @@ export default function Signup(props) {
       centered
     >
       <Modal.Body>
-        <Form onSubmit={handleSubmit}>
+        <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <Form.Group controlId="exampleForm.ControlInput1">
             <Form.Label>First Name</Form.Label>
             <Form.Control
@@ -104,8 +113,12 @@ export default function Signup(props) {
               placeholder="Enter title"
             />
           <Form.Group controlId="exampleForm.ControlSelect4">
-            <Form.Label>Are you an invidivudal contributor?</Form.Label>
-            <Form.Control type="checkbox" />
+            <Form.Label>Are you a Manager?</Form.Label>
+            <Form.Control 
+            type="checkbox" 
+            ref={individualContributorRef} 
+            
+            />
           </Form.Group>
           </Form.Group>
           <div className="d-flex justify-content-between">

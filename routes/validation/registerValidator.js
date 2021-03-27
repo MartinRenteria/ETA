@@ -5,7 +5,8 @@ const registerValidator = validatorFactory({
   password: { type: "string", empty: false },
   firstName: { type: "string" },
   lastName: { type: "string" },
-  title: { type: "string" }
+  title: { type: "string" },
+  individualContributor: { type: "Boolean", empty: false }
 });
 
 module.exports = registerValidator;
