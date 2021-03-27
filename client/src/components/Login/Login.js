@@ -1,13 +1,13 @@
-import React, {useRef} from "react";
+import React, { useRef } from "react";
 import { useLogin } from "../../utils/auth";
 import { Form, Button, Modal } from "react-bootstrap";
 import { useHistory } from 'react-router-dom';
 
 
 export default function LoginForm(props) {
-    
+
     let history = useHistory();
-        
+
     const emailRef = useRef();
     const passwordRef = useRef();
 
@@ -28,10 +28,10 @@ export default function LoginForm(props) {
 
             history.push("/Employee");
 
-        } catch(err) {
+        } catch (err) {
 
-             // Handle error responses from the API
-             if( err.response && err.response.data ) console.log(err.response.data);
+            // Handle error responses from the API
+            if (err.response && err.response.data) console.log(err.response.data);
 
         }
     }
@@ -62,7 +62,7 @@ export default function LoginForm(props) {
                     </Button>
 
                         <Button variant="outline-info btn-dark"
-                        onClick={props.onHide}>Close</Button>
+                            onClick={props.onHide}>Close</Button>
                     </div>
 
                 </Form>
