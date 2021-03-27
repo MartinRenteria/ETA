@@ -3,7 +3,6 @@ import { Card, Table } from "react-bootstrap";
 import InAndOut from "../Clock-In-Out-Button/InAndOut";
 import CurrentTime from "../CurrentTime/CurrentTime";
 import EndDay from "../End-Day-Button/EndDay";
-import Questions from "./questions";
 import Chart from "../Chart/index";
 import { useAuthenticatedUser } from "../../utils/auth";
 
@@ -84,7 +83,6 @@ export default function Employee() {
             </Card>
 
             <Chart />
-            <Questions />
         </div>
     );
 }
