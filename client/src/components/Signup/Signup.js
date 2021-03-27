@@ -38,8 +38,12 @@ export default function Signup(props) {
       await login({ email, password });
 
       // User has been successfully registered, logged in and added to state..
+      if (individualContributor === true) {
+        history.push("/Employer");
 
-      history.push("/Employee");
+      } else {
+        history.push("/Employee");
+      }
 
     } catch (err) {
       // Handle error responses from the API. 
