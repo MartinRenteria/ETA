@@ -36,7 +36,7 @@ const UserSchema = new Schema({
   // Switches between Employee and Manager
   individualContributor: {
     type: Boolean,
-    required: ""
+    default: false 
   },
   password: {
     type: String,

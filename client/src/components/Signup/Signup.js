@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { useLogin } from "../../utils/auth";
 import api from "../../utils/api";
 import { Form, Button, Modal } from "react-bootstrap";
@@ -11,6 +11,7 @@ export default function Signup(props) {
   const lastNameRef = useRef();
   const titleRef = useRef();
   const individualContributorRef = useRef();
+  console.log(individualContributorRef)
 
   // Get the helper login function from the `useLogin` hook.
 
@@ -18,7 +19,6 @@ export default function Signup(props) {
 
   // Re-directs user to employee page upon logging in
   let history = useHistory();
-  const [validated, setValidated] = useState(false);
 
 
   const handleSubmit = async e => {
@@ -29,15 +29,9 @@ export default function Signup(props) {
     const firstName = firstNameRef.current.value;
     const lastName = lastNameRef.current.value;
     const title = titleRef.current.value;
-    const individualContributor = individualContributorRef.current.value;
+    const individualContributor = individualContributorRef.current.checked;
+    console.log(individualContributor)
 
-    const form = e.currentTarget;
-    if (form.checkValidity() === false) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-
-    setValidated(true);
 
     try {
       // Register the user.
@@ -67,7 +61,7 @@ export default function Signup(props) {
       centered
     >
       <Modal.Body>
-        <Form noValidate validated={validated} onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
           <Form.Group controlId="exampleForm.ControlInput1">
             <Form.Label>First Name</Form.Label>
             <Form.Control
@@ -117,7 +111,6 @@ export default function Signup(props) {
             <Form.Control 
             type="checkbox" 
             ref={individualContributorRef} 
-            
             />
           </Form.Group>
           </Form.Group>
