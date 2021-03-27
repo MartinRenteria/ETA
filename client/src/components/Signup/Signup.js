@@ -10,6 +10,7 @@ export default function Signup(props) {
   const firstNameRef = useRef();
   const lastNameRef = useRef();
   const titleRef = useRef();
+  const individualContributorRef = useRef();
 
   // Get the helper login function from the `useLogin` hook.
 
@@ -27,22 +28,21 @@ export default function Signup(props) {
     const firstName = firstNameRef.current.value;
     const lastName = lastNameRef.current.value;
     const title = titleRef.current.value;
-
-    console.log(email, password);
+    const individualContributor = individualContributorRef.current.checked;
 
     try {
       // Register the user.
-      await api.register({ email, password, firstName, lastName, title });
+      await api.register({ email, password, firstName, lastName, title, individualContributor });
 
       // User has been successfully registered, now log them in with the same information.
       await login({ email, password });
 
-      // User has been successfully registered, logged in and added to state. Perform any additional actions you need here such as redirecting to a new page.
+      // User has been successfully registered, logged in and added to state..
 
       history.push("/Employee");
 
     } catch (err) {
-      // Handle error responses from the API. This will include
+      // Handle error responses from the API. 
       if (err.response && err.response.data) {
         console.log(err.response.data);
       } else {
@@ -103,6 +103,13 @@ export default function Signup(props) {
               ref={titleRef}
               placeholder="Enter title"
             />
+          <Form.Group controlId="exampleForm.ControlSelect4">
+            <Form.Label>Are you a Manager?</Form.Label>
+            <Form.Control 
+            type="checkbox" 
+            ref={individualContributorRef} 
+            />
+          </Form.Group>
           </Form.Group>
           <div className="d-flex justify-content-between">
             <Button variant="outline-info btn-dark" onClick={props.onHide} type="submit">

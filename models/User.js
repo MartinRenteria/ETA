@@ -28,13 +28,16 @@ const UserSchema = new Schema({
     ]
   },
   title: {
-    type: String
+    type: String,
+
+    default: 'user'
     // required: "Add your title"
   },
-  //this will be true if they don't have any direct reports. They are timecard users.
-  individualContributor: Boolean,
-  //note this is not required as we need a 'ceo'
-  // managerId: Number,
+  // Switches between Employee and Manager
+  individualContributor: {
+    type: Boolean,
+    default: false 
+  },
   password: {
     type: String,
     required: "Add your password"
