@@ -10,6 +10,7 @@ const SurveySchema = new Schema({
   hoursWorked: Number,
   questionOneScore: Number,
   questionTwoScore: Number,
+  answerAverage: Number,
   // clockCounter: { type: Number, default: 0 },
   //note that this reverse relationship isn't part of the example
   user: { type: Schema.Types.ObjectId, ref: "User" }

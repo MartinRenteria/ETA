@@ -1,9 +1,33 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
+import api from "../../utils/api";
 
 const selectedAnswersArray = [];
+// let answerAverage;
+const avg = arr => {
+  const sum = arr.reduce((acc, cur) => acc + cur);
+  console.log("this is the sum", sum);
+  const average = Math.round(sum / arr.length);
+  console.log("inside average", average);
+  return average;
+};
+
+const handleUpdateSurvey = async (id, surveyResponses) => {
+  try {
+    // Update the survey.
+    await api.updateSurvey(id, surveyResponses);
+  } catch (err) {
+    // Handle error responses from the API
+    if (err.response && err.response.data) {
+      console.log(err.response.data);
+    } else {
+      console.log(err);
+    }
+  }
+};
 
 export default function Questions(props) {
+  let answerAverage;
   const questions = [
     {
       questionText:
@@ -118,32 +142,59 @@ export default function Questions(props) {
   ];
   //this is a counter to see which number we're on
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const buttonEl = useRef([]);
 
   //create a state variable here to manage which answer we selected
 
   //this is a test to see what the values of the map are
-  function testAnswerOptionsMap(e) {
-    // console.log(buttonEl.current);
-    // console.log(this);
-    console.log(e.target.getAttribute("data-number"));
-    // questions[currentQuestion].answerOptions.map(answerOptionTest => {
-    //   return console.log(answerOptionTest.answerText);
-    // });
-  }
+  // function testAnswerOptionsMap(e) {
+  // console.log(buttonEl.current);
+  // console.log(this);
+  // console.log(e.target.getAttribute("data-number"));
+  // questions[currentQuestion].answerOptions.map(answerOptionTest => {
+  //   return console.log(answerOptionTest.answerText);
+  // });
+  // }
 
   // const handleAnswerButtonClick = selectedAnswer => {
   const handleAnswerButtonClick = e => {
     const nextQuestion = currentQuestion + 1;
-    // console.log(questions.answerOption); coming back as undefined
-    // console.log(this); coming back as undefined
-    console.log(currentQuestion);
+
+    // if (currentQuestion === questions.length - 1) {
+    //   return;
+    // }
+
+    console.log("currentQuestions:", currentQuestion);
     setCurrentQuestion(nextQuestion);
-    console.log(currentQuestion);
-    console.log(e.target.getAttribute("data-number"));
-    // console.log(selectedAnswer);
-    // selectedAnswersArray.push(currentQuestion.this.value);
+    console.log("the data-number", e.target.getAttribute("data-number"));
+    const thisAnswerInteger = parseInt(e.target.getAttribute("data-number"));
+
+    console.log(thisAnswerInteger);
+    selectedAnswersArray.push(thisAnswerInteger);
+
+    if (currentQuestion === questions.length - 1) {
+      console.log(
+        "this is avg outside the function",
+        avg(selectedAnswersArray)
+      );
+      answerAverage = avg(selectedAnswersArray);
+    }
+    if (currentQuestion === questions.length - 1) {
+      // handleUpdateSurvey({ answerAverage: answerAverage });
+      //can i import the id from inAndOut function?
+      handleUpdateSurvey("605fd74e49017476d8c8e16c", {
+        answerAverage: avg(selectedAnswersArray)
+      });
+
+      console.log("what Im putting in answerAverage", {
+        answerAverage: answerAverage
+      });
+      //add the put route here
+      console.log(selectedAnswersArray);
+      //close the modal here
+      alert("this is it!");
+    }
   };
+
   console.log(questions);
   console.log(currentQuestion);
   return (
