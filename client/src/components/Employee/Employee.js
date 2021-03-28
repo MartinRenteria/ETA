@@ -3,7 +3,7 @@ import { Card, Table } from "react-bootstrap";
 import InAndOut from "../Clock-In-Out-Button/InAndOut";
 import CurrentTime from "../CurrentTime/CurrentTime";
 import EndDay from "../End-Day-Button/EndDay";
-import Clock from "react-clock";
+import moment from 'moment';
 import "react-clock/dist/Clock.css";
 import { useAuthenticatedUser } from "../../utils/auth";
 import API from "../../utils/api";
@@ -12,13 +12,12 @@ import API from "../../utils/api";
 export default function Employee() {
     const user = useAuthenticatedUser();
     const [date, setDate] = useState("");
-    const [clockInOne, setClockInOne] = useState("")
+    const [clockInOneTime, setClockInOne] = useState("")
     const [clockOutOne, setClockOutOne] = useState("")
     const [clockInTwo, setClockInTwo] = useState("")
     const [clockOutTwo, setClockOutTwo] = useState("")
 
     const todayDate = new Date()
-    // todayDate.toLocaleDateString("default", { month: "long" })
     console.log("todayDate: " + todayDate)
 
     const showMonth = todayDate.toLocaleString("default", { month: "long" });
@@ -28,35 +27,43 @@ export default function Employee() {
 
     console.log("showDate: " + showDate)
 
+    const time = moment().format("LT")
+    console.log("time: " + time)
 
-    useEffect(() => {
-        API.getSurvey()
-            .then(res => {
+    // const getTimeData (() => {
+    API.getSurvey()
+        .then(res => {
+            // ClockInOne
+            const timeAPIOne = moment(res.data[0].clockInOne).format("LT")
+            console.log("timeAPI: " + timeAPIOne)
 
-                // const todayDate = new Date(clockInOne)
-                // // todayDate.toLocaleDateString("default", { month: "long" })
-                // console.log("todayDate: " + todayDate)
-
-                // const showAPIMonth = todayDate.toLocaleString("default", { month: "long" });
-
-                // // Get full date
-                // const showAPIDate = showAPIMonth + " " + todayDate.getDate() + ", " + todayDate.getFullYear();
-
-                // console.log("showDate: " + showAPIDate)
-
-                // console.log ("res: ", res)
-                
-                console.log(res.data[0].date)
-
-                setDate(res.data[0].clockInOne.toString(""))
-                console.log("get Date: " + date)
-
-                // setClockOutOne(res.data[0].clockOutOne[1])
-                // console.log("get clockInOne ", clockOutOne)
-
-
+            setClockInOne(timeAPIOne)
+            console.log("get Date: " + clockInOneTime)
             })
-        },[])
+    // })
+
+    // useEffect(() => {
+    // API.getSurvey()
+    // .then(res => {
+
+    // console.log ("res: ", res)
+
+    // console.log(res.data[0].date)
+
+    // setDate(res.data[0].clockInOne)
+    // console.log("get Date: " + date)
+
+    //ClockInOne
+    // const timeAPIOne = moment(res.data[0].clockInOne).format("LT")
+    // clockInOneTime.push(timeAPI);
+    // console.log("timeAPI: " + timeAPIOne)
+
+    // setClockInOne({clockInOneTime: timeAPI})
+    // console.log("get Date: " + clockInOneTime)
+
+
+    // })
+    // },[])
 
     return user && (
         <div>
@@ -93,7 +100,7 @@ export default function Employee() {
                         <tr>
                             <td>Clock in</td>
                             <td>{showDate}</td>
-                            <td>8:00 AM</td>
+                            <td>{clockInOneTime}</td>
                             <td>0</td>
                         </tr>
                         <tr>
