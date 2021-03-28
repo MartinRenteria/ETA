@@ -45,6 +45,12 @@ class API {
     return this.axios.post("/api/surveys", surveyData);
   }
 
+  // Getting survey from database
+  getSurvey (surveyData){
+    console.log("date & time" + surveyData)
+    return this.axios.get("/api/surveys", surveyData)
+  } 
+
   updateSurvey(id, surveyData) {
     console.log("what im putting", id, surveyData);
     return this.axios

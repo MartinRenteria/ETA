@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 //need to verify this accomplishes what I'm after for mongoose
-import api from "../../utils/api";
-import axios from "axios";
+import API from "../../utils/api";
+// import axios from "axios";
 
 //on page load, get the clockCounter from the database
 //if 0, then when we click the button, use post route
@@ -16,7 +16,7 @@ const handleSubmitSurvey = async () => {
     const clockInOne = Date.now();
     //result is the response.json we're getting back from the apiRoutes.js create route
     //come back to this later
-    const result = await api.createSurvey({ clockInOne });
+    const result = await API.createSurvey({ clockInOne });
     console.log(result);
     return result.data._id;
   } catch (err) {
@@ -32,7 +32,7 @@ const handleSubmitSurvey = async () => {
 const handleUpdateSurvey = async (id, updateTime) => {
   try {
     // Update the survey.
-    await api.updateSurvey(id, updateTime);
+    await API.updateSurvey(id, updateTime);
   } catch (err) {
     // Handle error responses from the API
     if (err.response && err.response.data) {

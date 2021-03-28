@@ -1,22 +1,70 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Card, Table } from "react-bootstrap";
 import InAndOut from "../Clock-In-Out-Button/InAndOut";
 import CurrentTime from "../CurrentTime/CurrentTime";
 import EndDay from "../End-Day-Button/EndDay";
-import Chart from "../Chart/index";
+import Clock from "react-clock";
+import "react-clock/dist/Clock.css";
 import { useAuthenticatedUser } from "../../utils/auth";
+import API from "../../utils/api";
 
 
 export default function Employee() {
-        const user = useAuthenticatedUser();
+    const user = useAuthenticatedUser();
+    const [date, setDate] = useState("");
+    const [clockInOne, setClockInOne] = useState("")
+    const [clockOutOne, setClockOutOne] = useState("")
+    const [clockInTwo, setClockInTwo] = useState("")
+    const [clockOutTwo, setClockOutTwo] = useState("")
+
+    const todayDate = new Date()
+    // todayDate.toLocaleDateString("default", { month: "long" })
+    console.log("todayDate: " + todayDate)
+
+    const showMonth = todayDate.toLocaleString("default", { month: "long" });
+
+    // Get full date
+    const showDate = showMonth + " " + todayDate.getDate() + ", " + todayDate.getFullYear();
+
+    console.log("showDate: " + showDate)
+
+
+    useEffect(() => {
+        API.getSurvey()
+            .then(res => {
+
+                // const todayDate = new Date(clockInOne)
+                // // todayDate.toLocaleDateString("default", { month: "long" })
+                // console.log("todayDate: " + todayDate)
+
+                // const showAPIMonth = todayDate.toLocaleString("default", { month: "long" });
+
+                // // Get full date
+                // const showAPIDate = showAPIMonth + " " + todayDate.getDate() + ", " + todayDate.getFullYear();
+
+                // console.log("showDate: " + showAPIDate)
+
+                // console.log ("res: ", res)
+                
+                console.log(res.data[0].date)
+
+                setDate(res.data[0].clockInOne.toString(""))
+                console.log("get Date: " + date)
+
+                // setClockOutOne(res.data[0].clockOutOne[1])
+                // console.log("get clockInOne ", clockOutOne)
+
+
+            })
+        },[])
 
     return user && (
         <div>
-                    <h2 className="d-flex justify-content-center m-1">My Timesheet</h2>
-        <p className="d-flex justify-content-center m-1">
-            <strong className="d-flex justify-content-center m-1">Weclome</strong>
-            {user.firstName}<p>!</p>
-        </p>
+            <h2 className="d-flex justify-content-center m-1">My Timesheet</h2>
+            <p className="d-flex justify-content-center m-1">
+                <strong className="d-flex justify-content-center m-1">Weclome</strong>
+                {user.firstName}<p>!</p>
+            </p>
             <Card
                 className="mx-auto bg-info my-2"
                 style={{ width: "60%", height: "60%" }}
@@ -44,13 +92,13 @@ export default function Employee() {
                     <tbody>
                         <tr>
                             <td>Clock in</td>
-                            <td>March 17, 2021</td>
+                            <td>{showDate}</td>
                             <td>8:00 AM</td>
                             <td>0</td>
                         </tr>
                         <tr>
                             <td>Clock Out</td>
-                            <td>March 17, 2021</td>
+                            <td>{showDate}</td>
                             <td>12:00 PM</td>
                             <td>4</td>
                         </tr>
@@ -59,13 +107,13 @@ export default function Employee() {
                         </tr>
                         <tr>
                             <td>Clock in</td>
-                            <td>March 17, 2021</td>
+                            <td>{showDate}</td>
                             <td>12:30 AM</td>
                             <td>0</td>
                         </tr>
                         <tr>
                             <td>Clock Out</td>
-                            <td>March 17, 2021</td>
+                            <td>{showDate}</td>
                             <td>16:30 PM</td>
                             <td>4</td>
                         </tr>
@@ -82,7 +130,7 @@ export default function Employee() {
                 </div>
             </Card>
 
-            <Chart />
+            {/* <Chart /> */}
         </div>
     );
 }
