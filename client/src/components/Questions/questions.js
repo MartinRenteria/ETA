@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import api from "../../utils/api";
-import InAndOut from "../Clock-In-Out-Button/InAndOut";
+import { useAuthenticatedUser } from "../../utils/auth";
 
 const selectedAnswersArray = [];
 // let answerAverage;
@@ -131,8 +131,7 @@ export default function Questions(props) {
       ]
     },
     {
-      questionText:
-        "Do you feel like you are respected? (with 1 being no respect and 5 being very respected",
+      questionText: "End of questions",
       answerOptions: [
         { answerText: 1 },
         { answerText: 2 },
@@ -145,25 +144,9 @@ export default function Questions(props) {
   //this is a counter to see which number we're on
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
-  //create a state variable here to manage which answer we selected
-
-  //this is a test to see what the values of the map are
-  // function testAnswerOptionsMap(e) {
-  // console.log(buttonEl.current);
-  // console.log(this);
-  // console.log(e.target.getAttribute("data-number"));
-  // questions[currentQuestion].answerOptions.map(answerOptionTest => {
-  //   return console.log(answerOptionTest.answerText);
-  // });
-  // }
-
   // const handleAnswerButtonClick = selectedAnswer => {
   const handleAnswerButtonClick = e => {
     const nextQuestion = currentQuestion + 1;
-
-    // if (currentQuestion === questions.length - 1) {
-    //   return;
-    // }
 
     console.log("currentQuestions:", currentQuestion);
     setCurrentQuestion(nextQuestion);
@@ -173,18 +156,18 @@ export default function Questions(props) {
     console.log(thisAnswerInteger);
     selectedAnswersArray.push(thisAnswerInteger);
 
-    if (currentQuestion === questions.length - 1) {
+    if (currentQuestion === questions.length - 2) {
       console.log(
         "this is avg outside the function",
         avg(selectedAnswersArray)
       );
       answerAverage = avg(selectedAnswersArray);
     }
-    if (currentQuestion === questions.length - 1) {
-      // handleUpdateSurvey({ answerAverage: answerAverage });
+    if (currentQuestion === questions.length - 2) {
       //can i import the id from inAndOut function?
       handleUpdateSurvey("605fd74e49017476d8c8e16c", {
         answerAverage: avg(selectedAnswersArray)
+        //close the modal here
       });
 
       console.log("what Im putting in answerAverage", {
@@ -235,6 +218,9 @@ export default function Questions(props) {
                   </Button>
                 ))}
               </div>
+              <Button variant="outline-info btn-dark" onClick={props.onHide}>
+                Close
+              </Button>
             </>
           )}
         </div>
