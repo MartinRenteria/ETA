@@ -2,8 +2,8 @@
     background-image: url(desk.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 57em;
-    width: 105em;
+    height: 100vh;
+    width: 100%;
 }
 
 

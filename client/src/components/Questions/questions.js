@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import api from "../../utils/api";
-import { useAuthenticatedUser } from "../../utils/auth";
 
 const selectedAnswersArray = [];
 // let answerAverage;
