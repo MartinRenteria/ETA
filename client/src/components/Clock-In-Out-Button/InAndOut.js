@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import api from "../../utils/api";
+import { useAuthenticatedUser } from "../../utils/auth";
 import Questions from "../Questions/questions";
 
-const handleClockInOne = async () => {
+const handleClockInOne = async userId => {
   try {
     // Submit the survey.
     const clockInOne = Date.now();
     //result is the response.json we're getting back from the apiRoutes.js create route
     //come back to this later
-    const result = await api.createSurvey({ clockInOne });
+    const result = await api.createSurvey({ clockInOne, user: userId });
     console.log(result);
     return result.data._id;
   } catch (err) {
@@ -41,6 +42,9 @@ export default function InAndOut() {
   const [clockCounter, setclockCounter] = useState(0);
   const [id, setId] = useState("");
 
+  //get the current user's info
+  const user = useAuthenticatedUser();
+
   return (
     <Button
       className="btn-warning text-success"
@@ -52,7 +56,7 @@ export default function InAndOut() {
           case 0:
             setclockCounter(1);
             //come back to this part later
-            handleClockInOne().then(surveyId => {
+            handleClockInOne(user._id).then(surveyId => {
               console.log(surveyId);
               setId(surveyId);
               console.log("clockCounter on 1st click", clockCounter);

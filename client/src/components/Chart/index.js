@@ -9,66 +9,49 @@ import {
   Legend
 } from "recharts";
 import api from "../../utils/api";
-
-const handleGetChartData = async () => {
-  try {
-    // Update the survey.
-    await api.getAllSurveys();
-  } catch (err) {
-    // Handle error responses from the API
-    if (err.response && err.response.data) {
-      console.log(err.response.data);
-    } else {
-      console.log(err);
-    }
-  }
-};
+import { useAuthenticatedUser } from "../../utils/auth";
 
 const Chart = () => {
+  // const user = useAuthenticatedUser();
+
+  // console.log(user);
+  api.getSurvey({ params: { _id: "605f6c875959fa75806b75c9" } }).then(res => {
+    // api.getSurvey().then(res => {
+    console.log("whole data: ", res);
+  });
   console.log("i'm the console in chart");
-  console.log(handleGetChartData);
+  // console.log(handleGetChartData);
+
+  //we need a way to limit the number of results
+
   const data = [
     {
-      name: "Page A",
-      uv: 4000,
-      pv: 2400,
-      amt: 2400
+      name: "Day 1",
+      "Average Rating": 1
     },
     {
-      name: "Page B",
-      uv: 3000,
-      pv: 1398,
-      amt: 2210
+      name: "Day 2",
+      "Average Rating": 2
     },
     {
-      name: "Page C",
-      uv: 2000,
-      pv: 9800,
-      amt: 2290
+      name: "Day 3",
+      "Average Rating": 3
     },
     {
-      name: "Page D",
-      uv: 2780,
-      pv: 3908,
-      amt: 2000
+      name: "Day 4",
+      "Average Rating": 4
     },
     {
-      name: "Page E",
-      uv: 1890,
-      pv: 4800,
-      amt: 2181
+      name: "Day 5",
+      "Average Rating": 5
     },
     {
-      name: "Page F",
-      uv: 2390,
-      pv: 3800,
-      amt: 2500
+      name: "Day 6",
+      "Average Rating": 5
     },
     {
-      name: "Page G",
-      uv: 3490,
-      pv: 4300,
-      amt: 2100
+      name: "Day 7",
+      "Average Rating": 5
     }
   ];
 
@@ -91,11 +74,12 @@ const Chart = () => {
       <Legend />
       <Line
         type="monotone"
-        dataKey="pv"
+        dataKey="Average Rating"
         stroke="#8884d8"
         activeDot={{ r: 8 }}
       />
-      <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+      {/* placeholder for additional metrics to use later. e.g. 
+      <Line type="monotone" dataKey="uv" stroke="#82ca9d" /> */}
     </LineChart>
   );
 };
