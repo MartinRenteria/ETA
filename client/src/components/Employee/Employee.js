@@ -29,9 +29,10 @@ export default function Employee() {
 
     API.getSurvey()
         .then(res => {
-            const lastData = res.data.length-1;
-            console.log("lastData: " + lastData);
 
+            //get the last dataset from database
+            const lastData = res.data.length-1;
+            // console.log("lastData: " + lastData);
 
             // ClockInOne
             const timeInAPIOne = moment(res.data[lastData].clockInOne).format("LT")
