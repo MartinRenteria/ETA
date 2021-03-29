@@ -3,12 +3,11 @@ import { Card } from "react-bootstrap";
 import "./style.css";
 
 
-function HomePage({ children }) {
+function HomePage() {
 
     return (
         <div className="jumbotron jumbotron-fluid d-flex align-items-center">
             <div className="container text-center">
-                {children}
                 <div>
             <Card className="card mx-auto lg-info">
                 <div className="card text-center">

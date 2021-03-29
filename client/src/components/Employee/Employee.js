@@ -3,14 +3,14 @@ import { Card, Table } from "react-bootstrap";
 import InAndOut from "../Clock-In-Out-Button/InAndOut";
 import CurrentTime from "../CurrentTime/CurrentTime";
 import EndDay from "../End-Day-Button/EndDay";
-import Chart from "../Chart/index";
 import { useAuthenticatedUser } from "../../utils/auth";
-
+import "./style.css";
 
 export default function Employee() {
         const user = useAuthenticatedUser();
 
     return user && (
+    <div className="employeePage">
         <div>
                     <h2 className="d-flex justify-content-center m-1">My Timesheet</h2>
         <p className="d-flex justify-content-center m-1">
@@ -81,8 +81,7 @@ export default function Employee() {
                     <EndDay />
                 </div>
             </Card>
-
-            <Chart />
         </div>
+    </div>
     );
 }
