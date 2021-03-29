@@ -48,6 +48,7 @@ class API {
   // Getting survey from database
   getSurvey (surveyData){
     console.log("date & time" + surveyData)
+
     return this.axios.get("/api/surveys", surveyData)
   } 
 

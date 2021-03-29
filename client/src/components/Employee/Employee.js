@@ -30,37 +30,39 @@ export default function Employee() {
     API.getSurvey()
         .then(res => {
 
+            console.log("whole data: ", res)
+
             //get the last dataset from database
             const lastData = res.data.length-1;
             // console.log("lastData: " + lastData);
 
             // ClockInOne
             const timeInAPIOne = moment(res.data[lastData].clockInOne).format("LT")
-            console.log("timeAPI1: " + timeInAPIOne)
+            // console.log("timeAPI1: " + timeInAPIOne)
 
             setClockInOne(timeInAPIOne)
-            console.log("get Date1: " + clockInOneTime)
+            // console.log("get Date1: " + clockInOneTime)
 
             // ClockOutOne
             const timeOutAPIOne = moment(res.data[lastData].clockOutOne).format("LT")
-            console.log("timeAPI1: " + timeOutAPIOne)
+            // console.log("timeAPI1: " + timeOutAPIOne)
 
             setClockOutOne(timeOutAPIOne)
-            console.log("get Date1: " + timeOutAPIOne)
+            // console.log("get Date1: " + timeOutAPIOne)
 
             // ClockInTwo
             const timeInAPITwo = moment(res.data[lastData].clockInTwo).format("LT")
-            console.log("timeAPI2: " + timeInAPITwo)
+            // console.log("timeAPI2: " + timeInAPITwo)
 
             setClockInTwo(timeInAPITwo)
-            console.log("get Date2: " + timeInAPITwo)
+            // console.log("get Date2: " + timeInAPITwo)
 
             // ClockOutTwo
             const timeOutAPITwo = moment(res.data[lastData].clockOutTwo).format("LT")
-            console.log("timeAPI2: " + timeOutAPITwo)
+            // console.log("timeAPI2: " + timeOutAPITwo)
 
             setClockOutTwo(timeOutAPITwo)
-            console.log("get Date2: " + timeOutAPITwo)
+            // console.log("get Date2: " + timeOutAPITwo)
             })
 
     return user && (
