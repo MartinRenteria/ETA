@@ -14,6 +14,15 @@ As an employer, I would like to use the responses from employees to help them co
 As an employee, I would like to login and be able to click a clock in/clock out/start lunch button to easily record working hours during the day.
 As an employee, I would like to be able to comunicate with my employer any issues I am having during the day at work to help employer give me tools/resources to correct any issues. 
 
+## **Screenshot**
+
+Here is a photo of the Live application
+
+![ETA](client/public/img/ETA.png)
+
+# Link to project 
+Look at the live version through Heroku [here.](https://eta-clocking-system.herokuapp.com/)
+
 ## Project Team
 
 - ### Front End
