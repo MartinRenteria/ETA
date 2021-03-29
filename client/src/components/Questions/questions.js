@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import api from "../../utils/api";
-import { useAuthenticatedUser } from "../../utils/auth";
 
 const selectedAnswersArray = [];
 // let answerAverage;
@@ -173,13 +172,12 @@ export default function Questions(props) {
       console.log("what Im putting in answerAverage", {
         answerAverage: answerAverage
       });
-      //add the put route here
-      console.log(selectedAnswersArray);
-      //close the modal here
-      alert("this is it!");
+      
+      alert("You have finished! You have ended your shift. Please logout when you are ready")
+      window.location.href = "http://localhost:3000/Employee"
+
     }
   };
-
   console.log(questions);
   console.log(currentQuestion);
   return (
@@ -208,11 +206,8 @@ export default function Questions(props) {
                 {questions[currentQuestion].answerOptions.map(answerOption => (
                   <Button
                     className="btn-warning text-success"
-                    // ref={ref => buttonEl.current.push(ref)}
                     data-number={answerOption.answerText}
                     onClick={handleAnswerButtonClick}
-                    // onClick={testAnswerOptionsMap}
-                    // onClick={handleAnswerButtonClick(answerOption.answerText)}
                   >
                     {answerOption.answerText}
                   </Button>
