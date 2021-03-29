@@ -40,9 +40,25 @@ class API {
    *
    * @returns {Promise}
    */
-  createSurvey(surveyData) {
-    console.log(surveyData);
-    return this.axios.post("/api/surveys", surveyData);
+  createSurvey(timeData) {
+    console.log(timeData);
+    return this.axios.post("/api/surveys", timeData);
+  }
+
+  getAllSurveys() {
+    return this.axios.get("/api/chart").then(function (response) {
+      console.log("response", response);
+    });
+  }
+
+  updateTime(id, timeData) {
+    console.log("what im putting", id, timeData);
+    return this.axios
+      .put("/api/surveys/" + id, timeData)
+      .then(function (response) {
+        console.log("response", response);
+        console.log("saved successfully");
+      });
   }
 
   updateSurvey(id, surveyData) {
