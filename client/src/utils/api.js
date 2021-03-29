@@ -20,7 +20,7 @@ class API {
    * @param {object} userData
    * @param {String} userData.email
    * @param {String} userData.password
-   *
+   * @param {boolean} userData.individualContributor
    * @returns {Promise}
    */
   register(userData) {
@@ -59,7 +59,7 @@ class API {
    * @param {object} userData
    * @param {String} userData.email
    * @param {String} userData.password
-   *
+   * @param {boolean} userData.individualContributor
    * @returns {Promise}
    */
   login(userData) {

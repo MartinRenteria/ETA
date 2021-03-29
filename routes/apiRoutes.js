@@ -3,11 +3,6 @@ const router = require("express").Router();
 const { Survey } = require("../models");
 const { User } = require("../models");
 
-/*Users*/
-//post route - create a new user. Leverage functionality already created for auth - verify the individual contributor checkbox is working
-
-//at login, determine credentials and if they should go to employee/employer route - Martin is taking this one
-
 /*Employee-Survey*/
 //post route - use on the first clock in
 router.post("/surveys", (req, res) => {

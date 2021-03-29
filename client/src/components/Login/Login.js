@@ -19,14 +19,22 @@ export default function LoginForm(props) {
 
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
+        const individualContributor = true || false;
 
         try {
 
             await login({ email, password });
 
-            // User has been successfully logged in and added to state. Perform any additional actions you need here such as redirecting to a new page.
+            // User has been successfully logged in and added to state.
 
-            history.push("/Employee");
+            if (individualContributor === true) {
+
+                history.push("/Employer");
+        
+              } else if (individualContributor === false) {
+
+                history.push("/Employee");
+              }
 
         } catch (err) {
 
