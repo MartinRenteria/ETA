@@ -131,8 +131,7 @@ export default function Questions(props) {
       ]
     },
     {
-      questionText:
-        "Do you feel like you are respected? (with 1 being no respect and 5 being very respected",
+      questionText: "End of questions",
       answerOptions: [
         { answerText: 1 },
         { answerText: 2 },
@@ -173,18 +172,18 @@ export default function Questions(props) {
     console.log(thisAnswerInteger);
     selectedAnswersArray.push(thisAnswerInteger);
 
-    if (currentQuestion === questions.length - 1) {
+    if (currentQuestion === questions.length - 2) {
       console.log(
         "this is avg outside the function",
         avg(selectedAnswersArray)
       );
       answerAverage = avg(selectedAnswersArray);
     }
-    if (currentQuestion === questions.length - 1) {
-      // handleUpdateSurvey({ answerAverage: answerAverage });
+    if (currentQuestion === questions.length - 2) {
       //can i import the id from inAndOut function?
       handleUpdateSurvey("605fd74e49017476d8c8e16c", {
         answerAverage: avg(selectedAnswersArray)
+        //close the modal here
       });
 
       console.log("what Im putting in answerAverage", {
@@ -235,6 +234,9 @@ export default function Questions(props) {
                   </Button>
                 ))}
               </div>
+              <Button variant="outline-info btn-dark" onClick={props.onHide}>
+                Close
+              </Button>
             </>
           )}
         </div>
