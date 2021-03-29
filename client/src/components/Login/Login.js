@@ -32,7 +32,8 @@ export default function LoginForm(props) {
 			}
 		} catch (err) {
 			// Handle error responses from the API
-			if (err.response && err.response.data) console.log(err.response.data);
+			if (err.response && err.response.data) alert("Oh no! Invalid password or email. Please try again.");
+			
 		}
 	};
 

@@ -9,11 +9,9 @@ const validateEmail = function (email) {
 const UserSchema = new Schema({
   firstName: {
     type: String
-    // required: "Add your name"
   },
   lastName: {
     type: String
-    // required: "Add your name"
   },
   email: {
     type: String,
@@ -31,7 +29,6 @@ const UserSchema = new Schema({
     type: String,
 
     default: 'user'
-    // required: "Add your title"
   },
   // Switches between Employee and Manager
   individualContributor: {
@@ -45,7 +42,6 @@ const UserSchema = new Schema({
   surveys: [{ type: Schema.Types.ObjectId, ref: "Survey" }]
 });
 //get all of the surveys
-//db.user.findById().populate("surveys").then(res.json, etc.)
 //find a user and .populate grabs all of the surveys and
 //fills them in with the survey data
 
