@@ -53,7 +53,7 @@ router.get("/surveys", (req, res) => {
 
 /*Employer-Surveys*/
 //get route - get the results for all employees (mvp, later will add by manager) use for chart
-router.get("/employer", (req, res) => {
+router.get("/chart", (req, res) => {
   Survey.find({})
     .then(dbSurvey => {
       res.json(dbSurvey);
@@ -63,8 +63,10 @@ router.get("/employer", (req, res) => {
     });
 });
 
-/*Questions - using an array instead for now*/
-//post route - we can load these into the database
-//get route - get the questions
+// Getting survey from database
+// getSurvey (surveyData){
+// console.log("all survey data" + surveyData);
+//   return this.axios.get("/chart", surveyData)
+// };
 
 module.exports = router;

@@ -1,8 +1,32 @@
-import React from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import React from "react";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend
+} from "recharts";
+import api from "../../utils/api";
 
+const handleGetChartData = async () => {
+  try {
+    // Update the survey.
+    await api.getAllSurveys();
+  } catch (err) {
+    // Handle error responses from the API
+    if (err.response && err.response.data) {
+      console.log(err.response.data);
+    } else {
+      console.log(err);
+    }
+  }
+};
 
 const Chart = () => {
+  console.log("i'm the console in chart");
+  console.log(handleGetChartData);
   const data = [
     {
       name: "Page A",
@@ -73,11 +97,7 @@ const Chart = () => {
       />
       <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
     </LineChart>
-  )
-
-}
+  );
+};
 
 export default Chart;
-
-
-  

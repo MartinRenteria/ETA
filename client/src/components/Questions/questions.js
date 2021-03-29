@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import api from "../../utils/api";
+import InAndOut from "../Clock-In-Out-Button/InAndOut";
 
 const selectedAnswersArray = [];
 // let answerAverage;
@@ -27,6 +28,7 @@ const handleUpdateSurvey = async (id, surveyResponses) => {
 };
 
 export default function Questions(props) {
+  console.log("props", props);
   let answerAverage;
   const questions = [
     {
