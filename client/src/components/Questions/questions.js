@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import api from "../../utils/api";
-import InAndOut from "../Clock-In-Out-Button/InAndOut";
+import { useAuthenticatedUser } from "../../utils/auth";
 
 const selectedAnswersArray = [];
 // let answerAverage;
@@ -144,25 +144,9 @@ export default function Questions(props) {
   //this is a counter to see which number we're on
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
-  //create a state variable here to manage which answer we selected
-
-  //this is a test to see what the values of the map are
-  // function testAnswerOptionsMap(e) {
-  // console.log(buttonEl.current);
-  // console.log(this);
-  // console.log(e.target.getAttribute("data-number"));
-  // questions[currentQuestion].answerOptions.map(answerOptionTest => {
-  //   return console.log(answerOptionTest.answerText);
-  // });
-  // }
-
   // const handleAnswerButtonClick = selectedAnswer => {
   const handleAnswerButtonClick = e => {
     const nextQuestion = currentQuestion + 1;
-
-    // if (currentQuestion === questions.length - 1) {
-    //   return;
-    // }
 
     console.log("currentQuestions:", currentQuestion);
     setCurrentQuestion(nextQuestion);

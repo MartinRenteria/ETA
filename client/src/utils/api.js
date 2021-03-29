@@ -45,6 +45,11 @@ class API {
     return this.axios.post("/api/surveys", timeData);
   }
 
+  getSurvey(surveyData) {
+    console.log("date & time" + surveyData);
+    return this.axios.get("/api/surveys", surveyData);
+  }
+
   getAllSurveys() {
     return this.axios.get("/api/chart").then(function (response) {
       console.log("response", response);
