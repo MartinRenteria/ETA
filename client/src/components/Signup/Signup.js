@@ -42,7 +42,8 @@ export default function Signup(props) {
 
         history.push("/Employer");
 
-      } else if (individualContributorRef === false) {
+      } else {
+        
         history.push("/Employee");
       }
 
