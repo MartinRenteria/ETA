@@ -1,21 +1,26 @@
 import React from 'react';
-import { Card } from "react-bootstrap"
-import helloGif from "../img/Hello.gif"
+import { Card } from "react-bootstrap";
+import "./style.css";
 
-function HomePage() {
+
+function HomePage({ children }) {
 
     return (
-        <div>
-            <Card className="mx-auto bg-info my-2"
-                style={{ width: "60%", height: "300px" }}>
-                <div className="text-center">
+        <div className="jumbotron jumbotron-fluid d-flex align-items-center">
+            <div className="container text-center">
+                {children}
+                <div>
+            <Card className="card mx-auto lg-info">
+                <div className="card text-center">
                     <h1 >Hello Team Member</h1>
                     <p>Please Log In to start your day</p>
-                    <img src={helloGif} alt="hello" style={{ height: "100px" }} />
                 </div>
             </Card>
         </div>
     )
+            </div>
+        </div>
+    );
 }
 
 export default HomePage;

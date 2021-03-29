@@ -1,0 +1,13 @@
+.jumbotron {
+    background-image: url(desk.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 60em;
+    width: 105em;
+}
+
+
+.card {
+    background: white;
+    opacity: 0.9;
+}
