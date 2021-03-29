@@ -3,13 +3,14 @@ import { useLogin } from "../../utils/auth";
 import { Form, Button, Modal } from "react-bootstrap";
 import { useHistory } from 'react-router-dom';
 
-
 export default function LoginForm(props) {
 
     let history = useHistory();
 
     const emailRef = useRef();
     const passwordRef = useRef();
+    const individualContributorRef = useRef();
+
 
     // Get the helper login function from the `useLogin` hook.
     const login = useLogin();
@@ -19,14 +20,23 @@ export default function LoginForm(props) {
 
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
+        const individualContributor = individualContributorRef.current.checked;
+
 
         try {
 
-            await login({ email, password });
+            await login({ email, password, individualContributor });
 
-            // User has been successfully logged in and added to state. Perform any additional actions you need here such as redirecting to a new page.
+            // User has been successfully logged in and added to state.
 
-            history.push("/Employee");
+            if ( individualContributor === true) {
+
+                history.push("/Employer");
+        
+              } else if (individualContributor === false) {
+
+                history.push("/Employee");
+              }
 
         } catch (err) {
 
@@ -53,9 +63,13 @@ export default function LoginForm(props) {
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" ref={passwordRef} placeholder="Password" />
                     </Form.Group>
-                    <Form.Group controlId="rememberMe">
-                        <Form.Check type="checkbox" label="Remember Me" />
-                    </Form.Group>
+          <Form.Group controlId="exampleForm.ControlSelect4">
+            <Form.Label>Are you a Manager?</Form.Label>
+            <Form.Control 
+            type="checkbox" 
+            ref={individualContributorRef} 
+            />
+          </Form.Group>
                     <div className="d-flex justify-content-between">
                         <Button variant="outline-info btn-dark" type="submit" onClick={props.onHide}>
                             Log In
