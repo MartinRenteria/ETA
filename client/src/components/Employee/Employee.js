@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Card, Table } from "react-bootstrap";
 import InAndOut from "../Clock-In-Out-Button/InAndOut";
 import CurrentTime from "../CurrentTime/CurrentTime";
@@ -11,12 +11,12 @@ import API from "../../utils/api";
 
 export default function Employee() {
     const user = useAuthenticatedUser();
-    const [date, setDate] = useState("");
     const [clockInOneTime, setClockInOne] = useState("")
-    const [clockOutOne, setClockOutOne] = useState("")
-    const [clockInTwo, setClockInTwo] = useState("")
-    const [clockOutTwo, setClockOutTwo] = useState("")
+    const [clockOutOneTime, setClockOutOne] = useState("")
+    const [clockInTwoTime, setClockInTwo] = useState("")
+    const [clockOutTwoTime, setClockOutTwo] = useState("")
 
+    //Get today Date
     const todayDate = new Date()
     console.log("todayDate: " + todayDate)
 
@@ -27,43 +27,38 @@ export default function Employee() {
 
     console.log("showDate: " + showDate)
 
-    const time = moment().format("LT")
-    console.log("time: " + time)
-
-    // const getTimeData (() => {
     API.getSurvey()
         .then(res => {
+            console.log(res)
+
             // ClockInOne
-            const timeAPIOne = moment(res.data[0].clockInOne).format("LT")
-            console.log("timeAPI: " + timeAPIOne)
+            const timeInAPIOne = moment(res.data[0].clockInOne).format("LT")
+            console.log("timeAPI1: " + timeInAPIOne)
 
-            setClockInOne(timeAPIOne)
-            console.log("get Date: " + clockInOneTime)
+            setClockInOne(timeInAPIOne)
+            console.log("get Date1: " + clockInOneTime)
+
+            // ClockOutOne
+            const timeOutAPIOne = moment(res.data[0].clockOutOne).format("LT")
+            console.log("timeAPI1: " + timeOutAPIOne)
+
+            setClockOutOne(timeOutAPIOne)
+            console.log("get Date1: " + timeOutAPIOne)
+
+            // ClockInTwo
+            const timeInAPITwo = moment(res.data[0].clockInTwo).format("LT")
+            console.log("timeAPI2: " + timeInAPITwo)
+
+            setClockInTwo(timeInAPITwo)
+            console.log("get Date2: " + timeInAPITwo)
+
+            // ClockOutTwo
+            const timeOutAPITwo = moment(res.data[0].clockOutTwo).format("LT")
+            console.log("timeAPI2: " + timeOutAPITwo)
+
+            setClockOutTwo(timeOutAPITwo)
+            console.log("get Date2: " + timeOutAPITwo)
             })
-    // })
-
-    // useEffect(() => {
-    // API.getSurvey()
-    // .then(res => {
-
-    // console.log ("res: ", res)
-
-    // console.log(res.data[0].date)
-
-    // setDate(res.data[0].clockInOne)
-    // console.log("get Date: " + date)
-
-    //ClockInOne
-    // const timeAPIOne = moment(res.data[0].clockInOne).format("LT")
-    // clockInOneTime.push(timeAPI);
-    // console.log("timeAPI: " + timeAPIOne)
-
-    // setClockInOne({clockInOneTime: timeAPI})
-    // console.log("get Date: " + clockInOneTime)
-
-
-    // })
-    // },[])
 
     return user && (
         <div>
@@ -106,7 +101,7 @@ export default function Employee() {
                         <tr>
                             <td>Clock Out</td>
                             <td>{showDate}</td>
-                            <td>12:00 PM</td>
+                            <td>{clockOutOneTime}</td>
                             <td>4</td>
                         </tr>
                         <tr className="text-danger fw-bold">
@@ -115,13 +110,13 @@ export default function Employee() {
                         <tr>
                             <td>Clock in</td>
                             <td>{showDate}</td>
-                            <td>12:30 AM</td>
+                            <td>{clockInTwoTime}</td>
                             <td>0</td>
                         </tr>
                         <tr>
                             <td>Clock Out</td>
                             <td>{showDate}</td>
-                            <td>16:30 PM</td>
+                            <td>{clockOutTwoTime}</td>
                             <td>4</td>
                         </tr>
                         <tr className="text-danger fw-bold">
