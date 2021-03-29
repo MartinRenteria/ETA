@@ -15,8 +15,8 @@ export default function Signup(props) {
   // Get the helper login function from the `useLogin` hook.
 
   const login = useLogin();
-
-  // Re-directs user to employee page upon logging in
+ 
+  // Re-directs user to employee or employer page upon logging in
   let history = useHistory();
 
 
@@ -35,11 +35,17 @@ export default function Signup(props) {
       await api.register({ email, password, firstName, lastName, title, individualContributor });
 
       // User has been successfully registered, now log them in with the same information.
-      await login({ email, password });
+      await login({ email, password, individualContributor });
 
       // User has been successfully registered, logged in and added to state..
+      if (individualContributor === true) {
 
-      history.push("/Employee");
+        history.push("/Employer");
+
+      } else {
+        
+        history.push("/Employee");
+      }
 
     } catch (err) {
       // Handle error responses from the API. 
