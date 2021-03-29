@@ -1,15 +1,13 @@
-import React from 'react';
+import React from "react";
 import { useLogout } from "../../utils/auth";
 import { Button } from "react-bootstrap";
 
+export default function LogoutButton() {
+	const logout = useLogout();
 
-export default function LogoutButton(){
-
-    const logout = useLogout();
-
-    return(
-        <Button onClick={logout} variant="outline-info btn-dark" className="ml-2" type="submit">
-            Log Out
-        </Button>
-    )
+	return (
+		<Button onClick={logout} variant="outline-info btn-dark" className="ml-2" type="submit">
+			Log Out
+		</Button>
+	);
 }

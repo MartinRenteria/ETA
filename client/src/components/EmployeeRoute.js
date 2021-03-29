@@ -10,7 +10,6 @@ const EmployeeRoute = ({ component: Component, children, redirectTo = "/", ...pr
 		) : (
 			children
 		) : (
-
 			<Redirect to={{ pathname: redirectTo, state: { from: location } }} />
 		);
 
