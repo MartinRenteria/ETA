@@ -16,7 +16,6 @@ function HomePage() {
                 </div>
             </Card>
         </div>
-    )
             </div>
         </div>
     );

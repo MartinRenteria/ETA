@@ -21,7 +21,7 @@ function NavButton () {
             <div className="RegisteringButtons">
 
                 {/* Log In button function */}
-                {!isAuthenticated && <Button variant="outline-info" className="ml-2" onClick={() => setModalLogin(true)}>
+                {!isAuthenticated && <Button variant="light outline-info" className="ml-2" onClick={() => setModalLogin(true)}>
                     Log In
                 </Button>}
                 <Login
@@ -29,7 +29,7 @@ function NavButton () {
                     onHide={() => setModalLogin(false)} />
 
                 {/* Sign up Button */}
-                {!isAuthenticated && <Button variant="outline-info" className="ml-2" onClick={()=> setModalSignup(true)}>
+                {!isAuthenticated && <Button variant="light outline-info" className="ml-2" onClick={()=> setModalSignup(true)}>
                     Sign Up
                 </Button>}
                 <Signup
