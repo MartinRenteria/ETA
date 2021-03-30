@@ -45,12 +45,12 @@ To start things off, we had two proposals for Project 3. We decided that Truc's 
 ## Future Goals
 
 - Graph employer
+- Employer access to identify trends
+- Real time feedback with resources
 
 ## Resources
 
 - [clickUp](https://clickup.com/)
-- 
-- 
 
 ## Technologies Used
 
@@ -59,5 +59,8 @@ To start things off, we had two proposals for Project 3. We decided that Truc's 
   <img src="https://img.shields.io/badge/Javascript-yellow" />
   <img src="https://img.shields.io/badge/-css-success" />
   <img src="https://img.shields.io/badge/Boostrap-informational" />
+  <img src="https://img.shields.io/badge/React-Boostrap-blue" />
+  <img src="https://img.shields.io/badge/-heroku-red" />
+  <img src="https://img.shields.io/badge/-React-informational" />
 
 </p>
