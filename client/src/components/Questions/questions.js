@@ -156,10 +156,6 @@ export default function Questions(props) {
     selectedAnswersArray.push(thisAnswerInteger);
 
     if (currentQuestion === questions.length - 2) {
-      console.log(
-        "this is avg outside the function",
-        avg(selectedAnswersArray)
-      );
       answerAverage = avg(selectedAnswersArray);
     }
     if (currentQuestion === questions.length - 2) {

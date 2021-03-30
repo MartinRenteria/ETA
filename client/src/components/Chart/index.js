@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   LineChart,
   Line,
@@ -9,57 +9,34 @@ import {
   Legend
 } from "recharts";
 import api from "../../utils/api";
-import { useAuthenticatedUser } from "../../utils/auth";
 
 const Chart = () => {
-  // const user = useAuthenticatedUser();
+  const [surveyResponses, setSurveyResponses] = useState([]);
 
-  // console.log(user);
-  api.getSurvey({ params: { _id: "605f6c875959fa75806b75c9" } }).then(res => {
-    // api.getSurvey().then(res => {
-    console.log("whole data: ", res);
-  });
-  console.log("i'm the console in chart");
-  // console.log(handleGetChartData);
+  useEffect(() => {
+    let mounted = true;
+    api.getSurvey().then(items => {
+      if (mounted) {
+        setSurveyResponses(items.data);
+      }
+    });
+    return () => (mounted = false);
+  }, []);
 
-  //we need a way to limit the number of results
+  const surveysWithAvg = surveyResponses.filter(
+    response => response.answerAverage
+  );
 
-  const data = [
-    {
-      name: "Day 1",
-      "Average Rating": 1
-    },
-    {
-      name: "Day 2",
-      "Average Rating": 2
-    },
-    {
-      name: "Day 3",
-      "Average Rating": 3
-    },
-    {
-      name: "Day 4",
-      "Average Rating": 4
-    },
-    {
-      name: "Day 5",
-      "Average Rating": 5
-    },
-    {
-      name: "Day 6",
-      "Average Rating": 5
-    },
-    {
-      name: "Day 7",
-      "Average Rating": 5
-    }
-  ];
+  const dataToChart = surveysWithAvg.map((avg, index) => ({
+    name: `Day ${index + 1}`,
+    "Average Rating": avg.answerAverage
+  }));
 
   return (
     <LineChart
       width={500}
       height={300}
-      data={data}
+      data={dataToChart}
       margin={{
         top: 5,
         right: 30,
