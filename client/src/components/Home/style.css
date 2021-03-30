@@ -1,3 +1,12 @@
+html {
+  /* Set rules to fill background */
+  background: url(desk.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .jumbotron {
     background-image: url(desk.jpg);
     background-repeat: no-repeat;
@@ -5,7 +14,6 @@
     height: 100vh;
     width: 100%;
 }
-
 
 .card {
     background: white;

@@ -27,14 +27,13 @@ app.use(
   require("./routes/apiRoutes")
 );
 
-//Send every request to the React app
-//Define any API Routes before this runs
-app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
-
 // Connect to Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/ETA");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/ETA", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false
+});
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);

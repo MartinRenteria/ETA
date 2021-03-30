@@ -6,7 +6,7 @@ export default function LogoutButton() {
 	const logout = useLogout();
 
 	return (
-		<Button onClick={logout} variant="outline-info btn-dark" className="ml-2" type="submit">
+		<Button onClick={logout} variant="light outline-info" className="ml-2" type="submit">
 			Log Out
 		</Button>
 	);
