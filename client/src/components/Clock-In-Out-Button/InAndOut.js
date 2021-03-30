@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import api from "../../utils/api";
 import { useAuthenticatedUser } from "../../utils/auth";
-import Questions from "../Questions/questions";
 
 const handleClockInOne = async userId => {
   try {
