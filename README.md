@@ -64,3 +64,19 @@ To start things off, we had two proposals for Project 3. We decided that Truc's 
   <img src="https://img.shields.io/badge/-React-informational" />
 
 </p>
+
+## Installation
+
+- axios
+- bootstrap
+- moment
+- passport
+- react-clock
+- react-dom
+- react-router-dom
+- recharts
+
+
+## Note for developers
+
+- Making sure to have .env file and type JWT_SECRET="ETA" to be able to run to app
